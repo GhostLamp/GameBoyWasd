@@ -10,14 +10,6 @@
 [ext_resource type="Script" uid="uid://bamxgpmnrlgra" path="res://scripts/usos/UsoAparecer.gd" id="5_nmw0x"]
 [ext_resource type="Script" uid="uid://dd8b7hrqy8u4t" path="res://scripts/usos/UsoAtivar.gd" id="10_iw4ti"]
 
-[sub_resource type="InputEventKey" id="InputEventKey_shna5"]
-device = -1
-keycode = 69
-unicode = 101
-
-[sub_resource type="Shortcut" id="Shortcut_iw4ti"]
-events = [SubResource("InputEventKey_shna5")]
-
 [sub_resource type="LabelSettings" id="LabelSettings_yjirp"]
 font_size = 32
 
@@ -95,15 +87,6 @@ anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
-[node name="BotaoJogar" type="Button" parent="ManegerReal" unique_id=764147952]
-layout_mode = 0
-offset_left = 328.0
-offset_top = 560.0
-offset_right = 376.0
-offset_bottom = 591.0
-shortcut = SubResource("Shortcut_iw4ti")
-text = "jogar"
-
 [node name="Button" type="Button" parent="ManegerReal" unique_id=594889875]
 layout_mode = 0
 offset_left = 744.0
@@ -176,13 +159,6 @@ script = ExtResource("3_shna5")
 script = ExtResource("10_iw4ti")
 target = NodePath("../../../ManegerReal/Button")
 
-[node name="BotaoSair" type="Button" parent="GameBoyManager" unique_id=1227092912]
-offset_left = 328.0
-offset_top = 152.0
-offset_right = 376.0
-offset_bottom = 183.0
-text = "sair"
-
 [node name="botao2" parent="GameBoyManager" unique_id=876104175 instance=ExtResource("3_scfaf")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(480, 416)
@@ -206,7 +182,5 @@ offset_bottom = 40.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[connection signal="pressed" from="ManegerReal/BotaoJogar" to="." method="gameBoy_activate"]
 [connection signal="pressed" from="ManegerReal/Button" to="ManegerReal/Button" method="usar"]
 [connection signal="pressed" from="ManegerReal/coletavel" to="ManegerReal/coletavel" method="usar"]
-[connection signal="pressed" from="GameBoyManager/BotaoSair" to="." method="gameBoy_deactivate"]
