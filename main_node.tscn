@@ -1,0 +1,212 @@
+[gd_scene format=4 uid="uid://qfjg07wkyt3y"]
+
+[ext_resource type="Script" uid="uid://b8sfg5cx1q5je" path="res://scripts/main_node.gd" id="1_yjirp"]
+[ext_resource type="PackedScene" uid="uid://dn3afebdxgi88" path="res://game_boy_char.tscn" id="2_dhalm"]
+[ext_resource type="Script" uid="uid://f2qs22phk1lj" path="res://scripts/usos/UsoUsar.gd" id="3_4vv7w"]
+[ext_resource type="Texture2D" uid="uid://c8qjdjiyhlhap" path="res://Selection 2025-11-26T15.43.05.png" id="3_bxfy6"]
+[ext_resource type="PackedScene" uid="uid://b2l7li57mr4k7" path="res://botao.tscn" id="3_scfaf"]
+[ext_resource type="Script" uid="uid://bqg2swaoyp84" path="res://scripts/intaragivel.gd" id="3_shna5"]
+[ext_resource type="Script" uid="uid://c8a5l4cagrt2f" path="res://scripts/usos/UsoAdicionarItem.gd" id="4_iw4ti"]
+[ext_resource type="Script" uid="uid://bamxgpmnrlgra" path="res://scripts/usos/UsoAparecer.gd" id="5_nmw0x"]
+[ext_resource type="Script" uid="uid://dd8b7hrqy8u4t" path="res://scripts/usos/UsoAtivar.gd" id="10_iw4ti"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_shna5"]
+device = -1
+keycode = 69
+unicode = 101
+
+[sub_resource type="Shortcut" id="Shortcut_iw4ti"]
+events = [SubResource("InputEventKey_shna5")]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yjirp"]
+font_size = 32
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_scfaf"]
+texture = ExtResource("3_bxfy6")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+2:1/0 = 0
+3:1/0 = 0
+3:2/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+0:3/0 = 0
+0:4/0 = 0
+1:2/0 = 0
+1:3/0 = 0
+1:4/0 = 0
+2:0/0 = 0
+2:2/0 = 0
+2:3/0 = 0
+2:4/0 = 0
+3:0/0 = 0
+3:3/0 = 0
+3:4/0 = 0
+4:0/0 = 0
+4:1/0 = 0
+4:2/0 = 0
+4:3/0 = 0
+4:4/0 = 0
+5:0/0 = 0
+5:1/0 = 0
+5:2/0 = 0
+5:3/0 = 0
+5:4/0 = 0
+6:0/0 = 0
+6:1/0 = 0
+6:2/0 = 0
+6:3/0 = 0
+6:4/0 = 0
+7:0/0 = 0
+7:1/0 = 0
+7:2/0 = 0
+7:3/0 = 0
+7:4/0 = 0
+8:0/0 = 0
+8:1/0 = 0
+8:2/0 = 0
+8:3/0 = 0
+8:4/0 = 0
+9:0/0 = 0
+9:1/0 = 0
+9:2/0 = 0
+9:3/0 = 0
+9:4/0 = 0
+10:0/0 = 0
+10:1/0 = 0
+10:2/0 = 0
+10:3/0 = 0
+10:4/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_621oa"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_scfaf")
+
+[node name="mainNode" type="Node2D" unique_id=645746410]
+script = ExtResource("1_yjirp")
+
+[node name="ManegerReal" type="Control" parent="." unique_id=906727337]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="BotaoJogar" type="Button" parent="ManegerReal" unique_id=764147952]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 560.0
+offset_right = 376.0
+offset_bottom = 591.0
+shortcut = SubResource("Shortcut_iw4ti")
+text = "jogar"
+
+[node name="Button" type="Button" parent="ManegerReal" unique_id=594889875]
+layout_mode = 0
+offset_left = 744.0
+offset_top = 336.0
+offset_right = 864.0
+offset_bottom = 407.0
+focus_mode = 0
+focus_behavior_recursive = 1
+text = "botão que
+precisa ativar"
+script = ExtResource("3_shna5")
+
+[node name="UsoUsar" type="Node" parent="ManegerReal/Button" unique_id=1519422144 node_paths=PackedStringArray("target")]
+script = ExtResource("3_4vv7w")
+target = NodePath("../../Label")
+
+[node name="coletavel" type="Button" parent="ManegerReal" unique_id=597080984]
+layout_mode = 0
+offset_left = 456.0
+offset_top = 360.0
+offset_right = 526.0
+offset_bottom = 391.0
+focus_mode = 0
+focus_behavior_recursive = 1
+text = "martelo"
+script = ExtResource("3_shna5")
+ativo = true
+
+[node name="UsoAdicionarItem" type="Node" parent="ManegerReal/coletavel" unique_id=12076160]
+script = ExtResource("4_iw4ti")
+item = "martelo"
+
+[node name="Label" type="Label" parent="ManegerReal" unique_id=558225979]
+visible = false
+layout_mode = 0
+offset_left = 608.0
+offset_top = 112.0
+offset_right = 711.0
+offset_bottom = 205.0
+text = "yippee
+:3"
+label_settings = SubResource("LabelSettings_yjirp")
+script = ExtResource("3_shna5")
+ativo = true
+
+[node name="UsoAparecer" type="Node" parent="ManegerReal/Label" unique_id=1541900424]
+script = ExtResource("5_nmw0x")
+
+[node name="GameBoyManager" type="Node2D" parent="." unique_id=1055398741]
+position = Vector2(0, 648)
+
+[node name="ColorRect" type="ColorRect" parent="GameBoyManager" unique_id=969201005]
+visible = false
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.13174233, 0.13174233, 0.13174233, 1)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="GameBoyManager" unique_id=1024985724]
+tile_map_data = PackedByteArray("AAADAAgAAQAKAAAAAAAEAAcAAQAKAAAAAAADAAYAAQAKAAAAAAAFAAYAAQAKAAAAAAAEAAUAAQAKAAAAAAADAAQAAQAKAAAAAAAFAAQAAQAKAAAAAAAFAAgAAQAKAAAAAAAGAAUAAQAKAAAAAAAGAAcAAQAKAAAAAAAHAAQAAQAKAAAAAAAHAAYAAQAKAAAAAAAHAAgAAQAKAAAAAAAGAAgAAQAKAAQAAAAHAAcAAQAKAAQAAAAGAAYAAQAKAAQAAAAFAAcAAQAKAAQAAAAEAAgAAQAKAAQAAAADAAcAAQAKAAQAAAAEAAYAAQAKAAQAAAAFAAUAAQAKAAQAAAAGAAQAAQAKAAQAAAAHAAUAAQAKAAQAAAAEAAQAAQAKAAQAAAADAAUAAQAKAAQAAAADAAMAAQABAAEAAAAEAAMAAQABAAEAAAAFAAMAAQABAAEAAAAGAAMAAQABAAEAAAAHAAMAAQABAAEAAAAIAAMAAQABAAEAAAACAAMAAQABAAEAAAACAAQAAQABAAEAAAACAAUAAQABAAEAAAACAAYAAQABAAEAAAACAAcAAQABAAEAAAACAAgAAQABAAEAAAACAAkAAQABAAEAAAADAAkAAQABAAEAAAAEAAkAAQABAAEAAAAFAAkAAQABAAEAAAAGAAkAAQABAAEAAAAHAAkAAQABAAEAAAAIAAkAAQABAAEAAAAIAAgAAQABAAEAAAAIAAcAAQABAAEAAAAIAAYAAQABAAEAAAAIAAUAAQABAAEAAAAIAAQAAQABAAEAAAA=")
+tile_set = SubResource("TileSet_621oa")
+
+[node name="GameBoyChar" parent="GameBoyManager" unique_id=1591911394 instance=ExtResource("2_dhalm")]
+position = Vector2(288, 352)
+
+[node name="botao" parent="GameBoyManager" unique_id=317601724 instance=ExtResource("3_scfaf")]
+position = Vector2(352, 288)
+script = ExtResource("3_shna5")
+
+[node name="UsoAtivar" type="Node" parent="GameBoyManager/botao" unique_id=1720432335 node_paths=PackedStringArray("target")]
+script = ExtResource("10_iw4ti")
+target = NodePath("../../../ManegerReal/Button")
+
+[node name="BotaoSair" type="Button" parent="GameBoyManager" unique_id=1227092912]
+offset_left = 328.0
+offset_top = 152.0
+offset_right = 376.0
+offset_bottom = 183.0
+text = "sair"
+
+[node name="botao2" parent="GameBoyManager" unique_id=876104175 instance=ExtResource("3_scfaf")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(480, 416)
+script = ExtResource("3_shna5")
+ativo = true
+requerimento = "martelo"
+removerItem = true
+
+[node name="UsoAtivar" type="Node" parent="GameBoyManager/botao2" unique_id=1030567135 node_paths=PackedStringArray("target")]
+script = ExtResource("10_iw4ti")
+target = NodePath("../../botao")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=670075931]
+anchor_mode = 0
+
+[node name="canvas" type="CanvasLayer" parent="." unique_id=1522841971]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="canvas" unique_id=1565668247]
+offset_right = 128.0
+offset_bottom = 40.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[connection signal="pressed" from="ManegerReal/BotaoJogar" to="." method="gameBoy_activate"]
+[connection signal="pressed" from="ManegerReal/Button" to="ManegerReal/Button" method="usar"]
+[connection signal="pressed" from="ManegerReal/coletavel" to="ManegerReal/coletavel" method="usar"]
+[connection signal="pressed" from="GameBoyManager/BotaoSair" to="." method="gameBoy_deactivate"]
