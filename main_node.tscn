@@ -9,9 +9,13 @@
 [ext_resource type="Script" uid="uid://c8a5l4cagrt2f" path="res://scripts/usos/UsoAdicionarItem.gd" id="4_iw4ti"]
 [ext_resource type="Script" uid="uid://bamxgpmnrlgra" path="res://scripts/usos/UsoAparecer.gd" id="5_nmw0x"]
 [ext_resource type="Script" uid="uid://dd8b7hrqy8u4t" path="res://scripts/usos/UsoAtivar.gd" id="10_iw4ti"]
+[ext_resource type="Script" uid="uid://ccrvujt4yclse" path="res://comentarios.gd" id="10_nmw0x"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yjirp"]
 font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_iw4ti"]
+font_size = 64
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_scfaf"]
 texture = ExtResource("3_bxfy6")
@@ -78,16 +82,20 @@ tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_scfaf")
 
+[sub_resource type="LabelSettings" id="LabelSettings_07t30"]
+font_size = 24
+font_color = Color(0, 1, 0, 1)
+
 [node name="mainNode" type="Node2D" unique_id=645746410]
 script = ExtResource("1_yjirp")
 
-[node name="ManegerReal" type="Control" parent="." unique_id=906727337]
+[node name="tela 1" type="Control" parent="." unique_id=906727337]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
-[node name="Button" type="Button" parent="ManegerReal" unique_id=594889875]
+[node name="Button" type="Button" parent="tela 1" unique_id=594889875]
 layout_mode = 0
 offset_left = 744.0
 offset_top = 336.0
@@ -99,11 +107,11 @@ text = "botão que
 precisa ativar"
 script = ExtResource("3_shna5")
 
-[node name="UsoUsar" type="Node" parent="ManegerReal/Button" unique_id=1519422144 node_paths=PackedStringArray("target")]
+[node name="UsoUsar" type="Node" parent="tela 1/Button" unique_id=1519422144 node_paths=PackedStringArray("target")]
 script = ExtResource("3_4vv7w")
 target = NodePath("../../Label")
 
-[node name="coletavel" type="Button" parent="ManegerReal" unique_id=597080984]
+[node name="coletavel" type="Button" parent="tela 1" unique_id=597080984]
 layout_mode = 0
 offset_left = 456.0
 offset_top = 360.0
@@ -115,11 +123,11 @@ text = "martelo"
 script = ExtResource("3_shna5")
 ativo = true
 
-[node name="UsoAdicionarItem" type="Node" parent="ManegerReal/coletavel" unique_id=12076160]
+[node name="UsoAdicionarItem" type="Node" parent="tela 1/coletavel" unique_id=12076160]
 script = ExtResource("4_iw4ti")
 item = "martelo"
 
-[node name="Label" type="Label" parent="ManegerReal" unique_id=558225979]
+[node name="Label" type="Label" parent="tela 1" unique_id=558225979]
 visible = false
 layout_mode = 0
 offset_left = 608.0
@@ -132,8 +140,65 @@ label_settings = SubResource("LabelSettings_yjirp")
 script = ExtResource("3_shna5")
 ativo = true
 
-[node name="UsoAparecer" type="Node" parent="ManegerReal/Label" unique_id=1541900424]
+[node name="UsoAparecer" type="Node" parent="tela 1/Label" unique_id=1541900424]
 script = ExtResource("5_nmw0x")
+
+[node name="Label2" type="Label" parent="tela 1" unique_id=363949644]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 40.0
+offset_right = 675.0
+offset_bottom = 128.0
+text = "LADO 1"
+label_settings = SubResource("LabelSettings_iw4ti")
+
+[node name="tela 2" type="Control" parent="." unique_id=1486815253]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1152.0
+offset_right = 2304.0
+offset_bottom = 648.0
+
+[node name="Label2" type="Label" parent="tela 2" unique_id=1774858801]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 40.0
+offset_right = 675.0
+offset_bottom = 128.0
+text = "LADO 2"
+label_settings = SubResource("LabelSettings_iw4ti")
+
+[node name="tela 3" type="Control" parent="." unique_id=1757040761]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 2304.0
+offset_right = 3456.0
+offset_bottom = 648.0
+
+[node name="Label2" type="Label" parent="tela 3" unique_id=82724811]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 40.0
+offset_right = 675.0
+offset_bottom = 128.0
+text = "LADO 3"
+label_settings = SubResource("LabelSettings_iw4ti")
+
+[node name="tela 4" type="Control" parent="." unique_id=1099840766]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 3456.0
+offset_right = 4608.0
+offset_bottom = 648.0
+
+[node name="Label2" type="Label" parent="tela 4" unique_id=149913586]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 40.0
+offset_right = 675.0
+offset_bottom = 128.0
+text = "LADO 4"
+label_settings = SubResource("LabelSettings_iw4ti")
 
 [node name="GameBoyManager" type="Node2D" parent="." unique_id=1055398741]
 position = Vector2(0, 648)
@@ -157,7 +222,7 @@ script = ExtResource("3_shna5")
 
 [node name="UsoAtivar" type="Node" parent="GameBoyManager/botao" unique_id=1720432335 node_paths=PackedStringArray("target")]
 script = ExtResource("10_iw4ti")
-target = NodePath("../../../ManegerReal/Button")
+target = NodePath("../../../tela 1/Button")
 
 [node name="botao2" parent="GameBoyManager" unique_id=876104175 instance=ExtResource("3_scfaf")]
 modulate = Color(1, 0, 1, 1)
@@ -182,5 +247,51 @@ offset_bottom = 40.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[connection signal="pressed" from="ManegerReal/Button" to="ManegerReal/Button" method="usar"]
-[connection signal="pressed" from="ManegerReal/coletavel" to="ManegerReal/coletavel" method="usar"]
+[node name="comentarios" type="Node2D" parent="." unique_id=1727529339]
+script = ExtResource("10_nmw0x")
+
+[node name="comentario" type="Label" parent="comentarios" unique_id=1206200962]
+offset_left = 280.0
+offset_top = 312.0
+offset_right = 536.0
+offset_bottom = 383.0
+text = "quando aperta ganha 
+um martelo"
+label_settings = SubResource("LabelSettings_07t30")
+
+[node name="comentario3" type="Label" parent="comentarios" unique_id=712707649]
+offset_left = 704.0
+offset_top = 280.0
+offset_right = 1078.0
+offset_bottom = 351.0
+text = "precisa apertar o botão amarelo"
+label_settings = SubResource("LabelSettings_07t30")
+
+[node name="comentario4" type="Label" parent="comentarios" unique_id=1152619101]
+offset_left = 520.0
+offset_top = 1008.0
+offset_right = 776.0
+offset_bottom = 1079.0
+text = "precisa de 
+um martelo"
+label_settings = SubResource("LabelSettings_07t30")
+
+[node name="comentario5" type="Label" parent="comentarios" unique_id=1181873656]
+offset_left = 344.0
+offset_top = 824.0
+offset_right = 600.0
+offset_bottom = 895.0
+text = "precisa apertar o 
+botão verde primeiro"
+label_settings = SubResource("LabelSettings_07t30")
+
+[node name="comentario2" type="Label" parent="comentarios" unique_id=1625918905]
+offset_left = 24.0
+offset_top = 680.0
+offset_right = 280.0
+offset_bottom = 751.0
+text = "tela do gameboy"
+label_settings = SubResource("LabelSettings_07t30")
+
+[connection signal="pressed" from="tela 1/Button" to="tela 1/Button" method="usar"]
+[connection signal="pressed" from="tela 1/coletavel" to="tela 1/coletavel" method="usar"]
