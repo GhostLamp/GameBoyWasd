@@ -16,13 +16,20 @@ func _ready() -> void:
 	# mudar algum tamanho no editor, não vai precisar mecher em valores no codigo
 	tamanho_do_passo = collision_shape_2d.shape.get_rect().size.x
 
-
-func _physics_process(_delta: float) -> void:
+# essas funções podem ser usadas no _physics_process 
+# mas eu passei elas pro input pra ficar mais facil de ativar e desativar os inputs
+func _input(event: InputEvent) -> void:
 	# se vc ja usou input.ReadValue<Vector2>() na unity é basicamente a mesma coisa
 	# pega o input e coloca num vetor2 onde esquerda e direita é 1 e -1 no x, o mesmo pra
 	# cima e baixo no y
 	direcao= Input.get_vector("esquerda", "direita", "cima", "baixo")
 	
+	
+	# se apertar o botão de interagr
+	if Input.is_action_just_pressed("interagir"):
+		interagir()
+
+func _physics_process(_delta: float) -> void:
 	if andando == true:
 		return
 	
@@ -38,10 +45,6 @@ func _physics_process(_delta: float) -> void:
 	# do olhando_para, ele tambem vai estar olhando na direção que o jogador quer ir
 	ray_cast_2d.force_raycast_update()
 	var colide = ray_cast_2d.is_colliding()
-	
-	# se apertar o botão de interagr
-	if Input.is_action_just_pressed("interagir"):
-		interagir()
 	
 	# se o raycast não colidir tiver uma direção diferente de (0,0) o jogador pode andar
 	if direcao and colide == false:
