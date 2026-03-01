@@ -15,6 +15,9 @@ func _ready() -> void:
 	# eu botoo tamanho do passo pra ser o tamanho da colisão assim msm se a gente decidir 
 	# mudar algum tamanho no editor, não vai precisar mecher em valores no codigo
 	tamanho_do_passo = collision_shape_2d.shape.get_rect().size.x
+	
+	
+	set_process_input(false)
 
 # essas funções podem ser usadas no _physics_process 
 # mas eu passei elas pro input pra ficar mais facil de ativar e desativar os inputs

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b2l7li57mr4k7"]
+
+[ext_resource type="Texture2D" uid="uid://p355yr24k314" path="res://icon.svg" id="1_htcy5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tpuep"]
+size = Vector2(64, 64)
+
+[node name="botao" type="StaticBody2D" unique_id=317601724]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1434202007]
+shape = SubResource("RectangleShape2D_tpuep")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=767948956]
+modulate = Color(0.61960787, 0.43529412, 0, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_htcy5")
