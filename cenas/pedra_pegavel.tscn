@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://hkph7vs0sq5f"]
+
+[ext_resource type="Script" uid="uid://x58ymnirnb16" path="res://pedra_pegavel.gd" id="1_6kgwv"]
+[ext_resource type="Texture2D" uid="uid://p355yr24k314" path="res://icon.svg" id="2_bnhb7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ip7q4"]
+size = Vector2(128, 128)
+
+[node name="PedraPegavel" type="Area2D" unique_id=1719980528]
+script = ExtResource("1_6kgwv")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1435775321]
+modulate = Color(0.38018915, 0.38018894, 0.38018897, 1)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_bnhb7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=810357082]
+scale = Vector2(0.25, 0.25)
+shape = SubResource("RectangleShape2D_ip7q4")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

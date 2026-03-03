@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://c87e80ovjw55m"]
+
+[ext_resource type="Script" uid="uid://d4abqh06r2wy6" path="res://scripts/porco_char.gd" id="1_d5sis"]
+[ext_resource type="Texture2D" uid="uid://p355yr24k314" path="res://icon.svg" id="2_4sadt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_scfaf"]
+size = Vector2(64, 64)
+
+[node name="PorcoChar" type="CharacterBody2D" unique_id=1591911394]
+motion_mode = 1
+script = ExtResource("1_d5sis")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=713570586]
+shape = SubResource("RectangleShape2D_scfaf")
+
+[node name="OlhandoPara" type="Node2D" parent="." unique_id=67134434]
+
+[node name="RayCast2D" type="RayCast2D" parent="OlhandoPara" unique_id=1931107155]
+target_position = Vector2(50, 0)
+
+[node name="Icon" type="Sprite2D" parent="OlhandoPara" unique_id=1836925186]
+position = Vector2(-1.9073486e-06, 0)
+rotation = 1.5707964
+scale = Vector2(0.49999997, 0.5)
+texture = ExtResource("2_4sadt")

@@ -2,23 +2,33 @@
 
 [ext_resource type="Script" uid="uid://b8sfg5cx1q5je" path="res://scripts/main_node.gd" id="1_i43u8"]
 [ext_resource type="Script" uid="uid://bqg2swaoyp84" path="res://scripts/intaragivel.gd" id="2_0ctr8"]
-[ext_resource type="Script" uid="uid://f2qs22phk1lj" path="res://scripts/usos/UsoUsar.gd" id="3_smd4x"]
-[ext_resource type="Script" uid="uid://c8a5l4cagrt2f" path="res://scripts/usos/UsoAdicionarItem.gd" id="4_i7wml"]
-[ext_resource type="Script" uid="uid://bamxgpmnrlgra" path="res://scripts/usos/UsoAparecer.gd" id="5_wx7xh"]
+[ext_resource type="Script" uid="uid://diw4im4q0w1ht" path="res://scripts/usos/UsoTrocarCena.gd" id="2_smd4x"]
+[ext_resource type="Script" uid="uid://bh8gx02v6wu8t" path="res://scripts/usos/UsoApagar.gd" id="4_i7wml"]
+[ext_resource type="Script" uid="uid://kxcgp0pjsf2x" path="res://scripts/cena_real.gd" id="4_wx7xh"]
+[ext_resource type="Script" uid="uid://c8a5l4cagrt2f" path="res://scripts/usos/UsoAdicionarItem.gd" id="5_i7wml"]
 [ext_resource type="Texture2D" uid="uid://c8qjdjiyhlhap" path="res://Selection 2025-11-26T15.43.05.png" id="6_3ua1q"]
 [ext_resource type="Script" uid="uid://c24k3rmj3lawr" path="res://scripts/cena_gameboy.gd" id="6_i7wml"]
-[ext_resource type="PackedScene" uid="uid://dn3afebdxgi88" path="res://cenas/game_boy_char.tscn" id="7_ofpu3"]
-[ext_resource type="PackedScene" uid="uid://b2l7li57mr4k7" path="res://cenas/botao.tscn" id="8_y0s78"]
-[ext_resource type="Script" uid="uid://dd8b7hrqy8u4t" path="res://scripts/usos/UsoAtivar.gd" id="9_ni4a3"]
+[ext_resource type="Script" uid="uid://bsi8rw808fc6g" path="res://scripts/usos/UsoChecarTexto.gd" id="6_wx7xh"]
+[ext_resource type="PackedScene" uid="uid://b151skqw535cy" path="res://cenas/senha_baú.tscn" id="8_3ua1q"]
+[ext_resource type="PackedScene" uid="uid://t74s7kowkqsc" path="res://cenas/coiote_inimigo.tscn" id="10_0ctr8"]
+[ext_resource type="PackedScene" uid="uid://hkph7vs0sq5f" path="res://cenas/pedra_pegavel.tscn" id="11_i7wml"]
+[ext_resource type="PackedScene" uid="uid://c87e80ovjw55m" path="res://cenas/porco_char.tscn" id="11_smd4x"]
 [ext_resource type="Theme" uid="uid://b5ttd423pn7an" path="res://temaBotão.tres" id="12_i7wml"]
 [ext_resource type="Script" uid="uid://ckga1318iyxqb" path="res://cenas/cartucho.gd" id="12_wx7xh"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_yjirp"]
-font_size = 8
-font_color = Color(0, 1, 0, 1)
+[ext_resource type="Script" uid="uid://b2ad127111275" path="res://cenas/spawner.gd" id="15_ofpu3"]
+[ext_resource type="Script" uid="uid://b221tbo7bp1eb" path="res://cenas/lose_area.gd" id="16_y0s78"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_iw4ti"]
 font_size = 64
+
+[sub_resource type="Theme" id="Theme_wx7xh"]
+default_font_size = 48
+
+[sub_resource type="Theme" id="Theme_3ua1q"]
+default_font_size = 32
+
+[sub_resource type="Theme" id="Theme_ofpu3"]
+default_font_size = 24
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_scfaf"]
 texture = ExtResource("6_3ua1q")
@@ -74,8 +84,8 @@ texture_region_size = Vector2i(64, 64)
 9:3/0 = 0
 9:4/0 = 0
 10:0/0 = 0
-10:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 10:1/0 = 0
+10:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 10:2/0 = 0
 10:3/0 = 0
 10:4/0 = 0
@@ -84,6 +94,9 @@ texture_region_size = Vector2i(64, 64)
 tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_scfaf")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ni4a3"]
+size = Vector2(24, 320.5)
 
 [sub_resource type="LabelSettings" id="LabelSettings_wx7xh"]
 font_size = 64
@@ -100,69 +113,6 @@ anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
-[node name="Button" type="Button" parent="tela 1" unique_id=594889875]
-layout_mode = 0
-offset_left = 744.0
-offset_top = 336.0
-offset_right = 864.0
-offset_bottom = 407.0
-focus_mode = 0
-focus_behavior_recursive = 1
-text = "botão que
-precisa do 
-amarelo"
-script = ExtResource("2_0ctr8")
-
-[node name="UsoUsar" type="Node" parent="tela 1/Button" unique_id=1519422144 node_paths=PackedStringArray("target")]
-script = ExtResource("3_smd4x")
-target = NodePath("../../Label")
-
-[node name="Label" type="Label" parent="tela 1" unique_id=558225979]
-visible = false
-layout_mode = 0
-offset_left = 280.0
-offset_top = 136.0
-offset_right = 649.0
-offset_bottom = 613.0
-text = "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡴⠞⠛⠉⢙⡛⣶⣤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣴⠋⠀⠀⠀⢰⠁⠀⠀⠉⢻⣷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⠇⠀⠀⠀⠀⠘⠀⠀⠀⠀⠀⠹⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡟⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠜⢹⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⣶⡶⠶⠮⠭⠵⢖⠒⠿⢤⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⣠⡶⠿⠛⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠲⣄⡀⠀⠀⠀⠀⠀⣰⠟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⢀⣴⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠚⠿⡷⣄⣀⣴⠞⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⣠⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠪⣻⣄⠀⠀⠀⣀⣀⠤⠴⠒⠚⢋⣭⣟⣯⣍⠉⠓⠒⠦⠤⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⣼⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⡝⣧⠔⠋⠁⠀⣀⠤⠔⣶⣿⡿⠿⠿⠿⠍⠉⠒⠢⢤⣀⠈⠑⠦⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⣼⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡦⠤⢤⣤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣞⣧⠤⠒⠉⠀⠀⠾⠛⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢲⣴⣾⣷⢤⡀⠀⠀⠀⠀⠀⠀⠀
-⢰⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡜⠀⠀⠀⠀⠈⠙⠳⢦⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣾⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⠟⢿⣿⣧⠙⢦⠀⠀⠀⠀⠀⠀
-⡜⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠿⣦⣄⡀⠀⠐⢄⠀⠀⠀⢻⡇⠀⠀⠀⠀⡠⢊⣭⣬⣭⣶⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⢿⡀⠀⠑⣄⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⣦⡀⠀⠑⢄⣀⢿⠇⠀⠀⠀⡜⣼⠟⠁⠀⠀⠉⢿⡄⠀⠀⠀⠀⣠⠤⠤⠤⣀⡀⠈⠙⡄⠀⠈⢆⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⣝⢦⡀⠀⣠⡞⠢⢄⠀⡜⣼⠁⣠⣴⣶⢦⡀⠀⢻⠀⠀⢀⣎⡴⠟⠛⠛⠶⣝⢦⠀⠘⡄⠀⠈⢧⠀⠀
-⢢⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣧⣄⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢦⢻⡾⠋⠀⣀⣀⠁⠁⡇⢰⢿⣄⣿⣎⢷⠀⢸⡇⠀⢸⡝⢀⣤⣄⡀⠀⠙⢷⡀⠀⢱⠀⠀⠈⡇⠀
-⠸⡆⠀⠀⠀⠀⠀⠀⠀⠀⡸⠀⠀⠈⠙⣳⢦⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠟⣧⠀⢀⣀⣀⡉⠱⣿⣼⣆⢿⠻⣯⡞⠀⢸⡇⠀⢸⣷⣏⢙⣿⡻⡆⠀⠀⢳⠀⠀⠀⠀⠀⢸⡀
-⠀⢳⡀⠀⠀⠀⠀⠀⠉⠚⠁⠀⠀⠀⠀⠀⠉⠻⢿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⣰⡏⠈⠁⠀⠀⠉⠢⠈⠛⢻⣿⠿⠛⠁⢀⣿⠇⠀⠈⣿⣿⢿⡟⣧⡷⠀⠀⢸⡄⠀⠀⠀⠀⠈⡇
-⠀⠈⢷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⢧⡀⠀⠀⠀⠢⠤⠔⡽⠁⠚⠉⠉⠉⢗⢷⣄⡠⣀⢻⣆⣀⣠⡿⠋⠀⠀⠀⠈⢿⡷⠿⠟⠁⠀⠀⣼⠀⠀⠀⠀⠀⠀⢱
-⠀⠀⠀⠻⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢣⠻⡄⠀⢀⣀⡤⠞⠁⠀⠀⠀⠀⠀⠘⢦⡈⠁⠀⠀⠸⡟⠉⠀⠀⠀⠀⠀⠀⠀⠙⢦⣀⣤⡶⠟⠉⠙⠒⠀⠀⠀⠀⢘
-⠀⠀⠀⠀⠈⠳⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⡀⠀⡇⣿⠛⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣿⣤⡀⠀⠈⠁⠀⠀⠀⠀⠀⠀⠀⠀⢠⠞⠍⠠⠤⠒⠂⢄⠀⠀⠀⠀⠀⢸
-⠀⠀⠀⠀⠀⠀⠈⠙⠲⣤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢀⣽⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⡉⠓⠦⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠐⣉⡿⠓⠲⠄⠀⠀⠀⠀⡆
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⠶⢤⣤⣄⣀⣠⣤⡤⠶⠛⣿⡀⠀⢢⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣿⣿⣄⠀⠀⠉⠙⠒⠲⠤⠤⠤⣤⣤⡤⠖⠚⠁⠀⠀⠀⠀⠀⠀⠀⢰⠃
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣷⠀⠀⠱⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⣿⣿⣦⣄⡀⠀⠀⠀⢀⣼⣿⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡞⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⣧⡀⠀⠙⢄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢫⠙⢻⣿⣿⣿⣿⣿⣿⣿⣿⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡼⠁⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢳⡱⡀⠀⠀⠣⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠳⣔⢹⡉⢻⣿⣿⣿⣿⡿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡞⠁⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⣿⣆⠀⠀⠈⠢⡀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠳⣥⣠⣹⣿⡿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠞⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠳⣕⢄⠀⠀⠈⠂⠀⠀⠀⠀⠀⠀⠀⠈⠓⠢⠌⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡴⠃⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⢷⡦⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⠔⠋⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠺⢕⣦⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⠴⠚⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠛⠻⠤⢄⣀⣀⣀⣀⣀⣀⣠⠤⠴⠒⠊⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-label_settings = SubResource("LabelSettings_yjirp")
-script = ExtResource("2_0ctr8")
-ativo = true
-
-[node name="UsoAparecer" type="Node" parent="tela 1/Label" unique_id=1541900424]
-script = ExtResource("5_wx7xh")
-
 [node name="Label2" type="Label" parent="tela 1" unique_id=363949644]
 layout_mode = 0
 offset_left = 448.0
@@ -171,6 +121,101 @@ offset_right = 675.0
 offset_bottom = 128.0
 text = "LADO 1"
 label_settings = SubResource("LabelSettings_iw4ti")
+
+[node name="Button" type="Button" parent="tela 1" unique_id=1617412135]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 504.0
+offset_right = 792.0
+offset_bottom = 648.0
+theme = SubResource("Theme_wx7xh")
+text = "Cama"
+
+[node name="Button2" type="Button" parent="tela 1" unique_id=1421230514]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 360.0
+offset_right = 124.0
+offset_bottom = 504.0
+theme = SubResource("Theme_3ua1q")
+text = "abajur"
+script = ExtResource("2_0ctr8")
+
+[node name="UsoTrocarCena" type="Node" parent="tela 1/Button2" unique_id=1261596408 node_paths=PackedStringArray("target")]
+script = ExtResource("2_smd4x")
+target = NodePath("")
+
+[node name="Button3" type="Button" parent="tela 1" unique_id=492305230]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 504.0
+offset_right = 248.0
+offset_bottom = 648.0
+theme = SubResource("Theme_wx7xh")
+text = "Cabeceira"
+
+[node name="Button4" type="Button" parent="tela 1" unique_id=674113927]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 448.0
+offset_right = 240.0
+offset_bottom = 504.0
+theme = SubResource("Theme_3ua1q")
+text = "bau"
+script = ExtResource("2_0ctr8")
+
+[node name="UsoTrocarCena" type="Node" parent="tela 1/Button4" unique_id=238200342 node_paths=PackedStringArray("target")]
+script = ExtResource("2_smd4x")
+target = NodePath("../../CenaBau")
+
+[node name="CenaBau" type="Node2D" parent="tela 1" unique_id=1495344024]
+visible = false
+script = ExtResource("4_wx7xh")
+
+[node name="ColorRect" type="ColorRect" parent="tela 1/CenaBau" unique_id=2103768726]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.34706816, 0.34706834, 0.3470683, 1)
+
+[node name="chave" type="Button" parent="tela 1/CenaBau" unique_id=1795200289]
+offset_left = 608.0
+offset_top = 320.0
+offset_right = 864.0
+offset_bottom = 512.0
+theme = SubResource("Theme_3ua1q")
+text = "Chave"
+script = ExtResource("2_0ctr8")
+
+[node name="UsoColetavel" type="Node" parent="tela 1/CenaBau/chave" unique_id=1754064147]
+script = ExtResource("5_i7wml")
+item = "Chave"
+
+[node name="UsoApagar" type="Node" parent="tela 1/CenaBau/chave" unique_id=2034907251]
+script = ExtResource("4_i7wml")
+
+[node name="BauBloqueio" type="Button" parent="tela 1/CenaBau" unique_id=272603877]
+offset_left = 257.0
+offset_top = 280.0
+offset_right = 896.0
+offset_bottom = 656.0
+theme = SubResource("Theme_wx7xh")
+text = "bau"
+script = ExtResource("2_0ctr8")
+
+[node name="UsoChecarCodigo" type="Node" parent="tela 1/CenaBau/BauBloqueio" unique_id=1307629636 node_paths=PackedStringArray("target")]
+script = ExtResource("6_wx7xh")
+target = NodePath("../SenhaBaú")
+
+[node name="UsoApagar" type="Node" parent="tela 1/CenaBau/BauBloqueio" unique_id=64065797]
+script = ExtResource("4_i7wml")
+
+[node name="SenhaBaú" parent="tela 1/CenaBau/BauBloqueio" unique_id=1056104322 instance=ExtResource("8_3ua1q")]
+layout_mode = 0
+offset_left = 255.0
+offset_top = 40.0
+offset_right = 383.0
+offset_bottom = 104.0
+resposta = Array[Color]([Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1)])
 
 [node name="tela 2" type="Control" parent="." unique_id=1486815253]
 layout_mode = 3
@@ -188,21 +233,24 @@ offset_bottom = 128.0
 text = "LADO 2"
 label_settings = SubResource("LabelSettings_iw4ti")
 
-[node name="coletavel" type="Button" parent="tela 2" unique_id=597080984]
+[node name="Button" type="Button" parent="tela 2" unique_id=1501448389]
 layout_mode = 0
 offset_left = 280.0
-offset_top = 336.0
-offset_right = 350.0
-offset_bottom = 367.0
-focus_mode = 0
-focus_behavior_recursive = 1
-text = "martelo"
-script = ExtResource("2_0ctr8")
-ativo = true
+offset_top = 160.0
+offset_right = 675.0
+offset_bottom = 648.0
+theme = SubResource("Theme_wx7xh")
+text = "guarda_roupa"
 
-[node name="UsoAdicionarItem" type="Node" parent="tela 2/coletavel" unique_id=12076160]
-script = ExtResource("4_i7wml")
-item = "martelo"
+[node name="Button2" type="Button" parent="tela 2" unique_id=1597980378]
+layout_mode = 0
+offset_left = 744.0
+offset_top = 504.0
+offset_right = 998.0
+offset_bottom = 646.0
+theme = SubResource("Theme_wx7xh")
+text = "cesto de 
+roupa suja"
 
 [node name="tela 3" type="Control" parent="." unique_id=1757040761]
 layout_mode = 3
@@ -219,6 +267,72 @@ offset_right = 675.0
 offset_bottom = 128.0
 text = "LADO 3"
 label_settings = SubResource("LabelSettings_iw4ti")
+
+[node name="Button" type="Button" parent="tela 3" unique_id=1894268337]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 440.0
+offset_right = 864.0
+offset_bottom = 648.0
+theme = SubResource("Theme_wx7xh")
+text = "mesa"
+
+[node name="Button2" type="Button" parent="tela 3" unique_id=1874052474]
+layout_mode = 0
+offset_left = 456.0
+offset_top = 360.0
+offset_right = 667.0
+offset_bottom = 440.0
+theme = SubResource("Theme_wx7xh")
+text = "joguinho"
+
+[node name="Button3" type="Button" parent="tela 3" unique_id=1425182139]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 218.0
+offset_right = 432.0
+offset_bottom = 293.0
+theme = SubResource("Theme_wx7xh")
+text = "mesa"
+
+[node name="Button4" type="Button" parent="tela 3" unique_id=1034744439]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 32.0
+offset_right = 128.0
+offset_bottom = 216.0
+theme = SubResource("Theme_ofpu3")
+text = "l
+i
+v
+r
+o"
+
+[node name="Button5" type="Button" parent="tela 3" unique_id=519438042]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 32.0
+offset_right = 232.0
+offset_bottom = 216.0
+theme = SubResource("Theme_ofpu3")
+text = "l
+i
+v
+r
+o"
+
+[node name="Button6" type="Button" parent="tela 3" unique_id=1078688323]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 32.0
+offset_right = 344.0
+offset_bottom = 216.0
+theme = SubResource("Theme_ofpu3")
+text = "l
+i
+v
+r
+o"
 
 [node name="tela 4" type="Control" parent="." unique_id=1099840766]
 layout_mode = 3
@@ -244,9 +358,15 @@ offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0.13174233, 0.13174233, 0.13174233, 1)
 
-[node name="TileMapLayer2" type="TileMapLayer" parent="GameBoyManager" unique_id=1056174420]
-tile_map_data = PackedByteArray("AAADAAMAAQAKAAAAAAAEAAMAAQAKAAAAAAAFAAMAAQAKAAAAAAAGAAMAAQAKAAAAAAAHAAMAAQAKAAAAAAAIAAMAAQAKAAAAAAACAAMAAQAKAAAAAAACAAQAAQAKAAAAAAACAAUAAQAKAAAAAAACAAYAAQAKAAAAAAACAAcAAQAKAAAAAAACAAgAAQAKAAAAAAACAAkAAQAKAAAAAAADAAkAAQAKAAAAAAAEAAkAAQAKAAAAAAAFAAkAAQAKAAAAAAAGAAkAAQAKAAAAAAAHAAkAAQAKAAAAAAAIAAkAAQAKAAAAAAAIAAgAAQAKAAAAAAAIAAcAAQAKAAAAAAAIAAYAAQAKAAAAAAAIAAUAAQAKAAAAAAAIAAQAAQAKAAAAAAACAAoAAQAKAAAAAAADAAoAAQAKAAAAAAAEAAoAAQAKAAAAAAAFAAoAAQAKAAAAAAAGAAoAAQAKAAAAAAAHAAoAAQAKAAAAAAAIAAoAAQAKAAAAAAA=")
-tile_set = SubResource("TileSet_621oa")
+[node name="Label2" type="Label" parent="GameBoyManager" unique_id=173015296]
+offset_left = 272.0
+offset_top = 336.0
+offset_right = 504.0
+offset_bottom = 437.0
+text = "ooohhh 
+cena assustadora
+booo
+a senha do bau é tudo brando"
 
 [node name="cartucho" type="Button" parent="GameBoyManager" unique_id=994289130 node_paths=PackedStringArray("jogo")]
 offset_left = 576.0
@@ -266,37 +386,54 @@ text = "menu de pausa"
 script = ExtResource("12_wx7xh")
 jogo = NodePath("../PausaMenu")
 
-[node name="GameboyTopDown" type="Node2D" parent="GameBoyManager" unique_id=408857995 node_paths=PackedStringArray("player")]
-visible = false
+[node name="GameboyTopDown" type="Node2D" parent="GameBoyManager" unique_id=408857995 node_paths=PackedStringArray("player", "cartucho")]
 script = ExtResource("6_i7wml")
-player = NodePath("GameBoyChar")
+player = NodePath("PorcoChar")
+cartucho = NodePath("../cartucho")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="GameBoyManager/GameboyTopDown" unique_id=1024985724]
-tile_map_data = PackedByteArray("AAAEAAcAAQABAAEAAAAFAAYAAQABAAEAAAAEAAUAAQABAAEAAAAGAAUAAQABAAEAAAAGAAcAAQABAAEAAAAGAAgAAQAKAAQAAAAHAAcAAQAKAAQAAAAGAAYAAQAKAAQAAAAFAAcAAQAKAAQAAAAEAAgAAQAKAAQAAAADAAcAAQAKAAQAAAAEAAYAAQAKAAQAAAAFAAUAAQAKAAQAAAAGAAQAAQAKAAQAAAAHAAUAAQAKAAQAAAAEAAQAAQAKAAQAAAADAAUAAQAKAAQAAAADAAQAAQABAAEAAAAFAAQAAQABAAEAAAAHAAQAAQABAAEAAAAHAAYAAQABAAEAAAAHAAgAAQABAAEAAAAFAAgAAQABAAEAAAADAAgAAQABAAEAAAADAAYAAQABAAEAAAA=")
+tile_map_data = PackedByteArray("AAAEAAcAAQAKAAAAAAAFAAYAAQAKAAAAAAAEAAUAAQAKAAAAAAAGAAUAAQAKAAAAAAAGAAcAAQAKAAAAAAAGAAgAAQAKAAQAAAAHAAcAAQAKAAQAAAAGAAYAAQAKAAQAAAAFAAcAAQAKAAQAAAAEAAgAAQAKAAQAAAADAAcAAQAKAAQAAAAEAAYAAQAKAAQAAAAFAAUAAQAKAAQAAAAGAAQAAQAKAAQAAAAHAAUAAQAKAAQAAAAEAAQAAQAKAAQAAAADAAUAAQAKAAQAAAADAAQAAQAKAAAAAAAHAAQAAQAKAAAAAAAHAAYAAQAKAAAAAAAHAAgAAQAKAAAAAAAFAAgAAQAKAAAAAAADAAgAAQAKAAAAAAADAAYAAQAKAAAAAAAFAAQAAQAKAAAAAAA=")
 tile_set = SubResource("TileSet_621oa")
 
-[node name="GameBoyChar" parent="GameBoyManager/GameboyTopDown" unique_id=1591911394 instance=ExtResource("7_ofpu3")]
-position = Vector2(288, 352)
+[node name="PorcoChar" parent="GameBoyManager/GameboyTopDown" unique_id=1591911394 node_paths=PackedStringArray("label") instance=ExtResource("11_smd4x")]
+position = Vector2(257, 352)
+label = NodePath("../Label")
 
-[node name="botao" parent="GameBoyManager/GameboyTopDown" unique_id=317601724 instance=ExtResource("8_y0s78")]
-position = Vector2(352, 288)
-script = ExtResource("2_0ctr8")
+[node name="CoioteInimigo" parent="GameBoyManager/GameboyTopDown" unique_id=806286374 instance=ExtResource("10_0ctr8")]
+position = Vector2(544, 352)
 
-[node name="UsoAtivar" type="Node" parent="GameBoyManager/GameboyTopDown/botao" unique_id=1720432335 node_paths=PackedStringArray("target")]
-script = ExtResource("9_ni4a3")
-target = NodePath("../../../../tela 1/Button")
+[node name="PedraPegavel" parent="GameBoyManager/GameboyTopDown" unique_id=1719980528 instance=ExtResource("11_i7wml")]
+position = Vector2(257, 480)
 
-[node name="botao2" parent="GameBoyManager/GameboyTopDown" unique_id=876104175 instance=ExtResource("8_y0s78")]
-modulate = Color(1, 0, 1, 1)
-position = Vector2(480, 416)
-script = ExtResource("2_0ctr8")
-ativo = true
-requerimento = "martelo"
-removerItem = true
+[node name="spawnerPedras" type="Node2D" parent="GameBoyManager/GameboyTopDown" unique_id=1362452711]
+position = Vector2(256, 224)
+script = ExtResource("15_ofpu3")
+max_intervalo = 2.0
+intervalo = 2.0
+spawn = ExtResource("11_i7wml")
 
-[node name="UsoAtivar" type="Node" parent="GameBoyManager/GameboyTopDown/botao2" unique_id=1030567135 node_paths=PackedStringArray("target")]
-script = ExtResource("9_ni4a3")
-target = NodePath("../../botao")
+[node name="spawnerCoite" type="Node2D" parent="GameBoyManager/GameboyTopDown" unique_id=1202699300]
+position = Vector2(544, 224)
+script = ExtResource("15_ofpu3")
+max_intervalo = 1.5
+intervalo = 2.0
+spawn = ExtResource("10_0ctr8")
+
+[node name="Label" type="Label" parent="GameBoyManager/GameboyTopDown" unique_id=271693729]
+modulate = Color(0, 0, 0, 1)
+offset_left = 200.0
+offset_top = 544.0
+offset_right = 328.0
+offset_bottom = 613.0
+text = "perdras: 0"
+
+[node name="loseArea" type="Area2D" parent="GameBoyManager/GameboyTopDown" unique_id=1476613766]
+collision_mask = 3
+script = ExtResource("16_y0s78")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameBoyManager/GameboyTopDown/loseArea" unique_id=170217476]
+position = Vector2(220, 415.75)
+shape = SubResource("RectangleShape2D_ni4a3")
 
 [node name="PausaMenu" type="Node2D" parent="GameBoyManager" unique_id=1867210684]
 visible = false
@@ -330,14 +467,17 @@ layout_mode = 2
 theme = ExtResource("12_i7wml")
 text = "sair"
 
+[node name="TileMapLayer2" type="TileMapLayer" parent="GameBoyManager" unique_id=1056174420]
+tile_map_data = PackedByteArray("AAADAAMAAQAKAAEAAAAEAAMAAQAKAAEAAAAFAAMAAQAKAAEAAAAGAAMAAQAKAAEAAAAHAAMAAQAKAAEAAAAIAAMAAQAKAAEAAAACAAMAAQAKAAEAAAACAAQAAQAKAAEAAAACAAUAAQAKAAEAAAACAAYAAQAKAAEAAAACAAcAAQAKAAEAAAACAAgAAQAKAAEAAAACAAkAAQAKAAEAAAADAAkAAQAKAAEAAAAEAAkAAQAKAAEAAAAFAAkAAQAKAAEAAAAGAAkAAQAKAAEAAAAHAAkAAQAKAAEAAAAIAAkAAQAKAAEAAAAIAAgAAQAKAAEAAAAIAAcAAQAKAAEAAAAIAAYAAQAKAAEAAAAIAAUAAQAKAAEAAAAIAAQAAQAKAAEAAAACAAoAAQAKAAEAAAADAAoAAQAKAAEAAAAEAAoAAQAKAAEAAAAFAAoAAQAKAAEAAAAGAAoAAQAKAAEAAAAHAAoAAQAKAAEAAAAIAAoAAQAKAAEAAAA=")
+tile_set = SubResource("TileSet_621oa")
+
 [node name="inventario" type="CanvasLayer" parent="." unique_id=1204945687]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="inventario" unique_id=349978053]
 offset_right = 40.0
 offset_bottom = 40.0
 
-[connection signal="pressed" from="tela 1/Button" to="tela 1/Button" method="usar"]
-[connection signal="pressed" from="tela 2/coletavel" to="tela 2/coletavel" method="usar"]
 [connection signal="pressed" from="GameBoyManager/cartucho" to="GameBoyManager/cartucho" method="_on_pressed"]
 [connection signal="pressed" from="GameBoyManager/cartucho2" to="GameBoyManager/cartucho2" method="_on_pressed"]
+[connection signal="body_entered" from="GameBoyManager/GameboyTopDown/loseArea" to="GameBoyManager/GameboyTopDown/loseArea" method="_on_body_entered"]
 [connection signal="pressed" from="GameBoyManager/PausaMenu/VBoxContainer/BotaoVoltarMenu" to="GameBoyManager/PausaMenu" method="_sair_do_jogo"]

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dfr4bd48fgx1w"]
+
+[ext_resource type="Script" uid="uid://bywq515m14so4" path="res://pedra.gd" id="1_plltg"]
+[ext_resource type="Texture2D" uid="uid://p355yr24k314" path="res://icon.svg" id="2_0txm3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0txm3"]
+
+[node name="Pedra" type="CharacterBody2D" unique_id=1576138416]
+collision_mask = 3
+script = ExtResource("1_plltg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1968901276]
+shape = SubResource("RectangleShape2D_0txm3")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=984864453]
+modulate = Color(0.38018915, 0.38018894, 0.38018897, 1)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_0txm3")

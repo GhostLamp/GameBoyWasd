@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://b151skqw535cy"]
+
+[ext_resource type="Script" uid="uid://bbxqxe7jsbkjj" path="res://cenas/senha_baú.gd" id="1_3dq3f"]
+[ext_resource type="Script" uid="uid://dfp0wf64k7fwi" path="res://cenas/color_rect.gd" id="2_qvh4c"]
+
+[node name="SenhaBaú" type="HBoxContainer" unique_id=691258234]
+offset_right = 128.0
+offset_bottom = 64.0
+script = ExtResource("1_3dq3f")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1509206300]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_qvh4c")
+
+[node name="trocarCorCima" type="Button" parent="ColorRect" unique_id=344428812]
+layout_mode = 0
+offset_right = 29.0
+offset_bottom = 16.0
+
+[node name="trocarCorBaixo" type="Button" parent="ColorRect" unique_id=2044162856]
+layout_mode = 0
+offset_top = 48.0
+offset_right = 29.0
+offset_bottom = 64.0
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1520869467]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0, 0, 1, 1)
+script = ExtResource("2_qvh4c")
+
+[node name="trocarCorCima" type="Button" parent="ColorRect2" unique_id=471629620]
+layout_mode = 0
+offset_right = 29.0
+offset_bottom = 16.0
+
+[node name="trocarCorBaixo" type="Button" parent="ColorRect2" unique_id=578619060]
+layout_mode = 0
+offset_top = 48.0
+offset_right = 29.0
+offset_bottom = 64.0
+
+[node name="ColorRect3" type="ColorRect" parent="." unique_id=1003499422]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0, 1, 0, 1)
+script = ExtResource("2_qvh4c")
+
+[node name="trocarCorCima" type="Button" parent="ColorRect3" unique_id=68867676]
+layout_mode = 0
+offset_right = 29.0
+offset_bottom = 16.0
+
+[node name="trocarCorBaixo" type="Button" parent="ColorRect3" unique_id=696585074]
+layout_mode = 0
+offset_top = 48.0
+offset_right = 29.0
+offset_bottom = 64.0
+
+[connection signal="button_down" from="ColorRect/trocarCorCima" to="ColorRect" method="_on_trocar_cor_cima_button_down"]
+[connection signal="button_down" from="ColorRect/trocarCorBaixo" to="ColorRect" method="_on_trocar_cor_baixo_button_down"]
+[connection signal="button_down" from="ColorRect2/trocarCorCima" to="ColorRect2" method="_on_trocar_cor_cima_button_down"]
+[connection signal="button_down" from="ColorRect2/trocarCorBaixo" to="ColorRect2" method="_on_trocar_cor_baixo_button_down"]
+[connection signal="button_down" from="ColorRect3/trocarCorCima" to="ColorRect3" method="_on_trocar_cor_cima_button_down"]
+[connection signal="button_down" from="ColorRect3/trocarCorBaixo" to="ColorRect3" method="_on_trocar_cor_baixo_button_down"]

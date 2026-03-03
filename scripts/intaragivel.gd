@@ -4,7 +4,7 @@ extends CanvasItem
 # esse codigo permite que um item seja interagivel
 
 # pega se esta ativo, se precisa de um item pra usar e se remove o item quando usa
-@export var ativo:bool = false
+@export var ativo:bool = true
 @export var requerimento:String = ""
 @export var removerItem:bool = false
 
@@ -13,6 +13,8 @@ var usos:Array[Uso]
 
 # pega todos os nodes que são filhos desse e são Uso e coloca eles no array  
 func _ready() -> void:
+	connect("button_down",usar)
+	
 	for i in get_children():
 		if i is Uso:
 			usos.append(i)
@@ -40,10 +42,12 @@ func usar():
 			usar_usos()
 		
 		return
+	
 	usar_usos()
 
 
 func usar_usos():
 	# pega todos Usos no array e usa a função principal
 	for i in usos:
-		i.uso()
+		if i.uso() == false:
+			break
