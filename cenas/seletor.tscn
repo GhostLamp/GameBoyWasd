@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://dfjsvleftq7nx"]
+
+[ext_resource type="Script" uid="uid://wjhgc2t4tywl" path="res://cenas/seletor.gd" id="1_xgc80"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6f5o5"]
+size = Vector2(96, 96)
+
+[node name="Seletor" type="Area2D" unique_id=321541725]
+script = ExtResource("1_xgc80")
+tamanho_do_passo = 104
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=614049444]
+shape = SubResource("RectangleShape2D_6f5o5")
+
+[node name="bordas" type="Node2D" parent="." unique_id=1766127530]
+
+[node name="ColorRect" type="ColorRect" parent="bordas" unique_id=1480672864]
+offset_left = -56.0
+offset_top = 48.0
+offset_right = 56.0
+offset_bottom = 56.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="bordas" unique_id=928901670]
+offset_left = 48.0
+offset_top = -48.0
+offset_right = 56.0
+offset_bottom = 48.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="bordas" unique_id=1320480740]
+offset_left = -56.0
+offset_top = -56.0
+offset_right = 56.0
+offset_bottom = -48.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="bordas" unique_id=1658567695]
+offset_left = -56.0
+offset_top = -48.0
+offset_right = -48.0
+offset_bottom = 48.0
+color = Color(0, 0, 0, 1)
+
+[node name="RayCast2D2" type="RayCast2D" parent="." unique_id=1443593130]
+target_position = Vector2(102, 0)
+collision_mask = 2

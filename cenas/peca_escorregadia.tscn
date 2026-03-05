@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bog2iuq1uq0gr"]
+
+[ext_resource type="Script" uid="uid://b8gcyjbjo5iy2" path="res://cenas/peca_escorregadia.gd" id="1_62c8a"]
+[ext_resource type="Texture2D" uid="uid://p355yr24k314" path="res://icon.svg" id="1_f13q8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_62c8a"]
+size = Vector2(80, 80)
+
+[node name="PecaEscorregadia" type="CharacterBody2D" unique_id=311692359]
+script = ExtResource("1_62c8a")
+tamanho_do_passo = 104
+numero = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1215907288]
+shape = SubResource("RectangleShape2D_62c8a")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1928954994]
+modulate = Color(0.380189, 0.380189, 0.3801889, 1)
+position = Vector2(-3.8146973e-06, 3.8146973e-06)
+scale = Vector2(0.62499994, 0.62499994)
+texture = ExtResource("1_f13q8")
+
+[node name="Label" type="Label" parent="." unique_id=769377361]
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RayCast2D2" type="RayCast2D" parent="." unique_id=1712107273]
+target_position = Vector2(72, 0)

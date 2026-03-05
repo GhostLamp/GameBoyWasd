@@ -26,19 +26,19 @@ var tela_atual:int = 0:
 		else:
 			tela_atual = 3
 
-func _ready() -> void:
-	telas = [tela_1,tela_2,tela_3,tela_4]
-	camera_2d.position = telas[tela_atual].position
-	game_boy_manager.hide()
-
 # os items que o jogador tem
 #
 # é definido assim {string:label}, a string é o nome do item, a a label é um texto que aparece
 # na tela quando vc pega o item
 var items:Dictionary = {}
 
-var focos_passados:Array[Node2D] = []
 var foco_atual:Node2D = self
+
+
+func _ready() -> void:
+	telas = [tela_1,tela_2,tela_3,tela_4]
+	camera_2d.position = telas[tela_atual].position
+	game_boy_manager.hide()
 
 # a função _input(event: InputEvent) roda toda vez que vc toca em uma tecla
 # e retorna a tecla como event
@@ -66,9 +66,7 @@ func _process(delta: float) -> void:
 			gameBoy_trocar(ultima_cena_gameboy)
 	
 	if Input.is_action_just_pressed("baixo") and foco_atual is CenaReal:
-		gameBoy_trocar(self)
-		camera_2d.position = telas[tela_atual].position
-
+		set_cena_ativa(self)
 
 # função pra adicionar um item no dicionario
 func adicionar_item(item:String):
@@ -103,38 +101,33 @@ func usar_item(item:String,remover:bool) -> bool:
 func gameBoy_trocar(novoFoco:Node2D):
 	# o gameboy tá sempre ativo, tudo que isso faz é trocar a posição da camera para
 	# mostrar ou não o gameboy e se ele recebe inputs
-	if novoFoco == foco_atual:
-		return
-	
-	if novoFoco is CenaReal:
-		set_cena_ativa(novoFoco)
-		return
 	
 	if novoFoco is CenaGameboy:
-		set_cena_ativa(novoFoco)
 		ultima_cena_gameboy = novoFoco
-		game_boy_manager.show()
-		return
+	
 	
 	game_boy_manager.hide()
-	set_cena_ativa(self)
+	set_cena_ativa(novoFoco)
 
 func troca_devagar():
-	foco_atual = null
+	foco_atual = $GameBoyManager/PausaMenu
+	ultima_cena_gameboy = $GameBoyManager/PausaMenu
 
 # usada para ativar e desativar a _input de uma cena quando saimos dela
 # e ativar a da pra que estamos trocando
 func set_cena_ativa(novoFoco:Node2D):
 	if foco_atual:
 		foco_atual.set_process_input(false)
-	novoFoco.set_process_input(true)
 	
-	if novoFoco.has_method("ativarCena"):
-		novoFoco.ativarCena()
+	novoFoco.set_process_input(true)
 	
 	if foco_atual:
 		if foco_atual.has_method("desativarCena"):
 			foco_atual.desativarCena()
+	
+	if novoFoco.has_method("ativarCena"):
+		novoFoco.ativarCena()
+	
 	
 	
 	foco_atual = novoFoco
