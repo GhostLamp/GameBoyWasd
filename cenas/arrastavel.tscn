@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://caf8h2y6hytx0"]
+
+[ext_resource type="Script" uid="uid://w2lrtruysvmy" path="res://cenas/arrastavel.gd" id="1_27am4"]
+
+[node name="Arrastavel" type="Button" unique_id=1622879449]
+offset_right = 112.0
+offset_bottom = 112.0
+text = "roupa"
+script = ExtResource("1_27am4")
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="button_up" from="." to="." method="_on_button_up"]

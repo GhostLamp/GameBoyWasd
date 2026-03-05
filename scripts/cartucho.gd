@@ -6,6 +6,6 @@ extends Button
 
 
 func _on_pressed() -> void:
-	var main:MainScene = $"../.."
+	var main: MainScene = $"../../.."
 	
 	main.gameBoy_trocar(jogo)

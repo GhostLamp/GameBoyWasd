@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cyje48mccihcc"]
+
+[ext_resource type="Script" uid="uid://ckga1318iyxqb" path="res://scripts/cartucho.gd" id="1_mxt8d"]
+
+[node name="cartucho" type="Button" unique_id=606594719]
+size_flags_vertical = 3
+script = ExtResource("1_mxt8d")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

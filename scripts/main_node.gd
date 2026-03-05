@@ -9,6 +9,7 @@ class_name MainScene
 @onready var v_box_container: VBoxContainer = $inventario/VBoxContainer
 @onready var ultima_cena_gameboy:CenaGameboy = $GameBoyManager/PausaMenu
 @onready var game_boy_manager: CanvasLayer = $GameBoyManager
+@onready var segura_cartucho: VBoxContainer = $GameBoyManager/seguraCartucho
 
 
 # pegano todos os lados da sala, os colocando em um array e guardando a lado atual 
@@ -28,6 +29,7 @@ var tela_atual:int = 0:
 func _ready() -> void:
 	telas = [tela_1,tela_2,tela_3,tela_4]
 	camera_2d.position = telas[tela_atual].position
+	game_boy_manager.hide()
 
 # os items que o jogador tem
 #
