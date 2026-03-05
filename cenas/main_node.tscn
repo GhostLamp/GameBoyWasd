@@ -15,6 +15,8 @@
 [ext_resource type="Script" uid="uid://c6whlogyihtrf" path="res://scripts/usos/UsoJogoColetavel.gd" id="10_wx7xh"]
 [ext_resource type="PackedScene" uid="uid://deaadnmvo6anv" path="res://cenas/gameboy_porco_coiote.tscn" id="11_3ua1q"]
 [ext_resource type="Theme" uid="uid://b5ttd423pn7an" path="res://temaBotão.tres" id="12_i7wml"]
+[ext_resource type="Script" uid="uid://bbbqrqnhf583u" path="res://cenas/escorregaReal.gd" id="12_ofpu3"]
+[ext_resource type="PackedScene" uid="uid://dvsu786a14u7g" path="res://cenas/game_boy_escorregar.tscn" id="17_y0s78"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_iw4ti"]
 font_size = 64
@@ -237,7 +239,6 @@ theme = SubResource("Theme_wx7xh")
 text = "armario"
 script = ExtResource("2_0ctr8")
 requerimento = "Chave de armario"
-removerItem = true
 
 [node name="UsoTrocarCena" type="Node" parent="tela 2/armario" unique_id=1906491535 node_paths=PackedStringArray("target")]
 script = ExtResource("2_smd4x")
@@ -360,6 +361,11 @@ offset_right = 667.0
 offset_bottom = 440.0
 theme = SubResource("Theme_wx7xh")
 text = "joguinho"
+script = ExtResource("2_0ctr8")
+
+[node name="UsoTrocarCena" type="Node" parent="tela 3/Joguinho" unique_id=1111327265 node_paths=PackedStringArray("target")]
+script = ExtResource("2_smd4x")
+target = NodePath("../../EscorregaPeças")
 
 [node name="Estante" type="Button" parent="tela 3" unique_id=1425182139]
 layout_mode = 0
@@ -408,6 +414,187 @@ i
 v
 r
 o"
+
+[node name="EscorregaPeças" type="Node2D" parent="tela 3" unique_id=1152728975]
+script = ExtResource("4_wx7xh")
+
+[node name="ColorRect" type="ColorRect" parent="tela 3/EscorregaPeças" unique_id=304586114]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.34706816, 0.34706834, 0.3470683, 1)
+
+[node name="Tabuleiro" type="ColorRect" parent="tela 3/EscorregaPeças" unique_id=571015108]
+offset_left = 384.0
+offset_top = 128.0
+offset_right = 768.0
+offset_bottom = 512.0
+
+[node name="chave" type="Button" parent="tela 3/EscorregaPeças" unique_id=1697680664]
+offset_left = 512.0
+offset_top = 304.0
+offset_right = 615.0
+offset_bottom = 360.0
+theme = SubResource("Theme_3ua1q")
+text = "objeto"
+script = ExtResource("2_0ctr8")
+
+[node name="UsoColetavel" type="Node" parent="tela 3/EscorregaPeças/chave" unique_id=1716808246]
+script = ExtResource("5_i7wml")
+item = "Chave de armario"
+
+[node name="UsoApagar" type="Node" parent="tela 3/EscorregaPeças/chave" unique_id=1790922314]
+script = ExtResource("4_i7wml")
+
+[node name="escorregaReal" type="Node2D" parent="tela 3/EscorregaPeças" unique_id=2018678085 node_paths=PackedStringArray("alvo")]
+position = Vector2(576, 320)
+script = ExtResource("12_ofpu3")
+passo = 128
+alvo = NodePath("../Bloqueio")
+resposta = {
+0: Vector2(-1, -1),
+1: Vector2(1, -1),
+4: Vector2(-1, 1),
+7: Vector2(1, 1)
+}
+
+[node name="ColorRect2" type="ColorRect" parent="tela 3/EscorregaPeças/escorregaReal" unique_id=1147608870]
+offset_left = -176.0
+offset_top = -176.0
+offset_right = -80.0
+offset_bottom = -80.0
+color = Color(0.99468845, 0, 0.047822274, 1)
+
+[node name="ColorRect" type="ColorRect" parent="tela 3/EscorregaPeças/escorregaReal/ColorRect2" unique_id=778199620]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 48.0
+offset_right = 96.0
+offset_bottom = 96.0
+
+[node name="Label" type="Label" parent="tela 3/EscorregaPeças/escorregaReal/ColorRect2" unique_id=136075121]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 26.0
+offset_bottom = 39.0
+text = "1"
+
+[node name="ColorRect3" type="ColorRect" parent="tela 3/EscorregaPeças/escorregaReal" unique_id=616796315]
+offset_left = -48.0
+offset_top = -48.0
+offset_right = 48.0
+offset_bottom = 48.0
+color = Color(0.8245396, 0.39109474, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="tela 3/EscorregaPeças/escorregaReal/ColorRect3" unique_id=327440478]
+layout_mode = 0
+offset_top = 48.0
+offset_right = 48.0
+offset_bottom = 96.0
+
+[node name="Label" type="Label" parent="tela 3/EscorregaPeças/escorregaReal/ColorRect3" unique_id=967079170]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 16.0
+offset_right = 74.0
+offset_bottom = 39.0
+text = "2"
+
+[node name="ColorRect4" type="ColorRect" parent="tela 3/EscorregaPeças/escorregaReal" unique_id=372334454]
+visible = false
+offset_left = -48.0
+offset_top = 80.0
+offset_right = 48.0
+offset_bottom = 176.0
+color = Color(1.0221529, 0.7718215, 0, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="tela 3/EscorregaPeças/escorregaReal" unique_id=1834849678]
+visible = false
+offset_left = 80.0
+offset_top = 80.0
+offset_right = 176.0
+offset_bottom = 176.0
+color = Color(0.6575042, 0.85513544, 1.540184e-06, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="tela 3/EscorregaPeças/escorregaReal" unique_id=1724764941]
+offset_left = 80.0
+offset_top = -48.0
+offset_right = 176.0
+offset_bottom = 48.0
+color = Color(0, 0.56300277, 0.079510294, 1)
+
+[node name="ColorRect" type="ColorRect" parent="tela 3/EscorregaPeças/escorregaReal/ColorRect6" unique_id=1464360332]
+layout_mode = 0
+offset_left = 48.0
+offset_right = 96.0
+offset_bottom = 48.0
+
+[node name="Label" type="Label" parent="tela 3/EscorregaPeças/escorregaReal/ColorRect6" unique_id=2016452667]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 56.0
+offset_right = 26.0
+offset_bottom = 79.0
+text = "5"
+
+[node name="ColorRect7" type="ColorRect" parent="tela 3/EscorregaPeças/escorregaReal" unique_id=1213940747]
+visible = false
+offset_left = -176.0
+offset_top = 80.0
+offset_right = -80.0
+offset_bottom = 176.0
+color = Color(5.7756904e-07, 0.56801045, 0.8341456, 1)
+
+[node name="ColorRect8" type="ColorRect" parent="tela 3/EscorregaPeças/escorregaReal" unique_id=1718144447]
+visible = false
+offset_left = 80.0
+offset_top = -176.0
+offset_right = 176.0
+offset_bottom = -80.0
+color = Color(0, 0.22576228, 0.57430285, 1)
+
+[node name="ColorRect9" type="ColorRect" parent="tela 3/EscorregaPeças/escorregaReal" unique_id=2020016618]
+offset_left = -176.0
+offset_top = -48.0
+offset_right = -80.0
+offset_bottom = 48.0
+color = Color(0.7150792, 0.2432906, 1, 1)
+
+[node name="ColorRect" type="ColorRect" parent="tela 3/EscorregaPeças/escorregaReal/ColorRect9" unique_id=191729338]
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 48.0
+
+[node name="Label" type="Label" parent="tela 3/EscorregaPeças/escorregaReal/ColorRect9" unique_id=278448782]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 56.0
+offset_right = 74.0
+offset_bottom = 79.0
+text = "8"
+
+[node name="Bloqueio" type="ColorRect" parent="tela 3/EscorregaPeças" unique_id=526026967]
+offset_left = 384.0
+offset_top = 128.0
+offset_right = 768.0
+offset_bottom = 512.0
+color = Color(0.4117647, 0.4117647, 0.4117647, 0.1764706)
+
+[node name="slidezzColetavel" type="Button" parent="tela 3/EscorregaPeças" unique_id=349562835]
+offset_left = 648.0
+offset_top = 392.0
+offset_right = 758.0
+offset_bottom = 504.0
+theme = SubResource("Theme_3ua1q")
+text = "slidezz"
+script = ExtResource("2_0ctr8")
+
+[node name="UsoJogoColetavel" type="Node" parent="tela 3/EscorregaPeças/slidezzColetavel" unique_id=1883740860]
+script = ExtResource("10_wx7xh")
+jogo = ExtResource("17_y0s78")
+
+[node name="UsoApagar" type="Node" parent="tela 3/EscorregaPeças/slidezzColetavel" unique_id=206446737]
+script = ExtResource("4_i7wml")
 
 [node name="tela 4" type="Control" parent="." unique_id=1099840766]
 layout_mode = 3

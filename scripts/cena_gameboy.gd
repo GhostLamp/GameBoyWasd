@@ -1,6 +1,6 @@
 class_name CenaGameboy
 extends Node2D
-@export var player:CharacterBody2D
+@export var player:Node2D
 var ativo:bool
 @export var cenaCartucho:PackedScene 
 
@@ -23,7 +23,9 @@ func _ready() -> void:
 
 func ativarCena():
 	show()
+	get_parent().show()
 	ativo = true
+	
 	if player:
 		player.set_process_input(true)
 
@@ -34,9 +36,9 @@ func desativarCena():
 		player.set_process_input(false)
 
 func deleter_jogo():
-	cartucho.queue_free()
-	queue_free()
-	
+	cartucho.visible = false
+	visible = false
+
 
 func _sair_do_jogo() -> void:
 	get_tree().change_scene_to_file("res://cenas/tela_de_inicio.tscn")
