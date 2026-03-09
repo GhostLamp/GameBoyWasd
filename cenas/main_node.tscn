@@ -2,13 +2,17 @@
 
 [ext_resource type="Script" uid="uid://b8sfg5cx1q5je" path="res://scripts/main_node.gd" id="1_i43u8"]
 [ext_resource type="Script" uid="uid://bqg2swaoyp84" path="res://scripts/interagivel.gd" id="2_0ctr8"]
+[ext_resource type="Texture2D" uid="uid://cp4vrf5o5e74g" path="res://artes/principal/parede.png" id="2_ni4a3"]
 [ext_resource type="Script" uid="uid://diw4im4q0w1ht" path="res://scripts/usos/UsoTrocarCena.gd" id="2_smd4x"]
+[ext_resource type="Texture2D" uid="uid://7d7ki70p03op" path="res://artes/principal/Cama.png" id="3_ohoc8"]
 [ext_resource type="Script" uid="uid://bh8gx02v6wu8t" path="res://scripts/usos/UsoApagar.gd" id="4_i7wml"]
 [ext_resource type="Script" uid="uid://kxcgp0pjsf2x" path="res://scripts/cena_real.gd" id="4_wx7xh"]
 [ext_resource type="Script" uid="uid://c8a5l4cagrt2f" path="res://scripts/usos/UsoAdicionarItem.gd" id="5_i7wml"]
 [ext_resource type="Texture2D" uid="uid://c8qjdjiyhlhap" path="res://Selection 2025-11-26T15.43.05.png" id="6_3ua1q"]
 [ext_resource type="Script" uid="uid://c24k3rmj3lawr" path="res://scripts/cena_gameboy.gd" id="6_i7wml"]
+[ext_resource type="Texture2D" uid="uid://ce3rfnlmvv7x6" path="res://artes/principal/Cabeceira.png" id="6_jj8cv"]
 [ext_resource type="Script" uid="uid://bsi8rw808fc6g" path="res://scripts/usos/UsoChecarTexto.gd" id="6_wx7xh"]
+[ext_resource type="Texture2D" uid="uid://jt1h2uk6gcrd" path="res://artes/principal/Baú_pequeno.png" id="7_ps3j1"]
 [ext_resource type="PackedScene" uid="uid://b151skqw535cy" path="res://cenas/senha_baú.tscn" id="8_3ua1q"]
 [ext_resource type="PackedScene" uid="uid://caf8h2y6hytx0" path="res://cenas/arrastavel.tscn" id="9_ni4a3"]
 [ext_resource type="PackedScene" uid="uid://cyje48mccihcc" path="res://cenas/cartucho.tscn" id="10_3ua1q"]
@@ -110,6 +114,11 @@ anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
+[node name="Cenário 1" type="Sprite2D" parent="tela 1" unique_id=28498415]
+position = Vector2(575.5, 322.50003)
+scale = Vector2(3.0026042, 3.0138888)
+texture = ExtResource("2_ni4a3")
+
 [node name="Label2" type="Label" parent="tela 1" unique_id=363949644]
 layout_mode = 0
 offset_left = 448.0
@@ -119,21 +128,28 @@ offset_bottom = 128.0
 text = "LADO 1"
 label_settings = SubResource("LabelSettings_iw4ti")
 
-[node name="Cama" type="Button" parent="tela 1" unique_id=1617412135]
-layout_mode = 0
-offset_left = 280.0
-offset_top = 504.0
-offset_right = 792.0
-offset_bottom = 648.0
+[node name="SpriteCama" type="Sprite2D" parent="tela 1" unique_id=236628432]
+position = Vector2(598, 517)
+scale = Vector2(3, 3)
+texture = ExtResource("3_ohoc8")
+
+[node name="Cama" type="Button" parent="tela 1/SpriteCama" unique_id=1617412135]
+visible = false
+offset_left = -46.0
+offset_top = -4.999999
+offset_right = 46.888893
+offset_bottom = 25.0
 theme = SubResource("Theme_wx7xh")
+theme_override_font_sizes/font_size = 15
 text = "Cama"
 
 [node name="Abajur" type="Button" parent="tela 1" unique_id=1421230514]
+visible = false
 layout_mode = 0
-offset_left = 16.0
-offset_top = 360.0
-offset_right = 124.0
-offset_bottom = 504.0
+offset_left = 103.0
+offset_top = 277.0
+offset_right = 211.0
+offset_bottom = 421.0
 theme = SubResource("Theme_3ua1q")
 text = "abajur"
 script = ExtResource("2_0ctr8")
@@ -141,28 +157,40 @@ script = ExtResource("2_0ctr8")
 [node name="UsoTrocarCena" type="Node" parent="tela 1/Abajur" unique_id=1261596408]
 script = ExtResource("2_smd4x")
 
-[node name="Cabeceira" type="Button" parent="tela 1" unique_id=492305230]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 504.0
-offset_right = 248.0
-offset_bottom = 648.0
+[node name="Cabeceira" type="Sprite2D" parent="tela 1" unique_id=98649145]
+position = Vector2(235, 498)
+scale = Vector2(3.9183671, 3.9183676)
+texture = ExtResource("6_jj8cv")
+
+[node name="Cabeceira" type="Button" parent="tela 1/Cabeceira" unique_id=492305230]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -34.963547
+offset_top = -8.421879
+offset_right = 31.036453
+offset_bottom = 16.578121
 theme = SubResource("Theme_wx7xh")
+theme_override_font_sizes/font_size = 12
 text = "Cabeceira"
 
-[node name="Bau" type="Button" parent="tela 1" unique_id=674113927]
-layout_mode = 0
-offset_left = 152.0
-offset_top = 448.0
-offset_right = 240.0
-offset_bottom = 504.0
+[node name="SpriteBaú" type="Sprite2D" parent="tela 1" unique_id=2096139960]
+position = Vector2(298, 388)
+scale = Vector2(3.0344825, 3.0344827)
+texture = ExtResource("7_ps3j1")
+
+[node name="Bau" type="Button" parent="tela 1/SpriteBaú" unique_id=674113927]
+modulate = Color(1, 1, 1, 0)
+offset_left = -23.397732
+offset_top = -7.90909
+offset_right = 15.887989
+offset_bottom = 17.09091
 theme = SubResource("Theme_3ua1q")
+theme_override_font_sizes/font_size = 12
 text = "bau"
 script = ExtResource("2_0ctr8")
 
-[node name="UsoTrocarCena" type="Node" parent="tela 1/Bau" unique_id=238200342 node_paths=PackedStringArray("target")]
+[node name="UsoTrocarCena" type="Node" parent="tela 1/SpriteBaú/Bau" unique_id=238200342 node_paths=PackedStringArray("target")]
 script = ExtResource("2_smd4x")
-target = NodePath("../../CenaBau")
+target = NodePath("../../../CenaBau")
 
 [node name="CenaBau" type="Node2D" parent="tela 1" unique_id=1495344024]
 visible = false
@@ -221,6 +249,7 @@ offset_right = 2304.0
 offset_bottom = 648.0
 
 [node name="Label2" type="Label" parent="tela 2" unique_id=1774858801]
+z_index = 3
 layout_mode = 0
 offset_left = 448.0
 offset_top = 40.0
@@ -230,6 +259,7 @@ text = "LADO 2"
 label_settings = SubResource("LabelSettings_iw4ti")
 
 [node name="armario" type="Button" parent="tela 2" unique_id=1501448389]
+z_index = 3
 layout_mode = 0
 offset_left = 280.0
 offset_top = 160.0
@@ -245,6 +275,7 @@ script = ExtResource("2_smd4x")
 target = NodePath("../../CenaArmario")
 
 [node name="BotaoCestoRoupas" type="Button" parent="tela 2" unique_id=1597980378]
+z_index = 3
 layout_mode = 0
 offset_left = 744.0
 offset_top = 504.0
@@ -327,6 +358,12 @@ offset_left = 408.0
 offset_top = 296.0
 offset_right = 656.0
 offset_bottom = 520.0
+
+[node name="Cenário 2" type="Sprite2D" parent="tela 2" unique_id=1452809426]
+z_index = -1
+position = Vector2(575.4999, 324)
+scale = Vector2(2.9973955, 3.0092595)
+texture = ExtResource("2_ni4a3")
 
 [node name="tela 3" type="Control" parent="." unique_id=1757040761]
 layout_mode = 3
@@ -415,7 +452,14 @@ v
 r
 o"
 
+[node name="Cenário 3" type="Sprite2D" parent="tela 3" unique_id=1781743331]
+z_index = -1
+position = Vector2(576.50006, 324)
+scale = Vector2(3.0078127, 3.0185187)
+texture = ExtResource("2_ni4a3")
+
 [node name="EscorregaPeças" type="Node2D" parent="tela 3" unique_id=1152728975]
+visible = false
 script = ExtResource("4_wx7xh")
 
 [node name="ColorRect" type="ColorRect" parent="tela 3/EscorregaPeças" unique_id=304586114]
@@ -501,7 +545,6 @@ offset_bottom = 39.0
 text = "2"
 
 [node name="ColorRect4" type="ColorRect" parent="tela 3/EscorregaPeças/escorregaReal" unique_id=372334454]
-visible = false
 offset_left = -48.0
 offset_top = 80.0
 offset_right = 48.0
@@ -509,7 +552,6 @@ offset_bottom = 176.0
 color = Color(1.0221529, 0.7718215, 0, 1)
 
 [node name="ColorRect5" type="ColorRect" parent="tela 3/EscorregaPeças/escorregaReal" unique_id=1834849678]
-visible = false
 offset_left = 80.0
 offset_top = 80.0
 offset_right = 176.0
@@ -538,7 +580,6 @@ offset_bottom = 79.0
 text = "5"
 
 [node name="ColorRect7" type="ColorRect" parent="tela 3/EscorregaPeças/escorregaReal" unique_id=1213940747]
-visible = false
 offset_left = -176.0
 offset_top = 80.0
 offset_right = -80.0
@@ -546,7 +587,6 @@ offset_bottom = 176.0
 color = Color(5.7756904e-07, 0.56801045, 0.8341456, 1)
 
 [node name="ColorRect8" type="ColorRect" parent="tela 3/EscorregaPeças/escorregaReal" unique_id=1718144447]
-visible = false
 offset_left = 80.0
 offset_top = -176.0
 offset_right = 176.0
@@ -611,6 +651,21 @@ offset_right = 675.0
 offset_bottom = 128.0
 text = "LADO 4"
 label_settings = SubResource("LabelSettings_iw4ti")
+
+[node name="Button" type="Button" parent="tela 4" unique_id=516077121]
+layout_mode = 0
+offset_left = 245.0
+offset_top = 221.0
+offset_right = 433.0
+offset_bottom = 648.0
+theme_override_font_sizes/font_size = 39
+text = "Porta"
+
+[node name="Cenário 4" type="Sprite2D" parent="tela 4" unique_id=1309661745]
+z_index = -1
+position = Vector2(578, 324.44598)
+scale = Vector2(3.000001, 3.0051293)
+texture = ExtResource("2_ni4a3")
 
 [node name="GameBoyManager" type="CanvasLayer" parent="." unique_id=28149663]
 visible = false
