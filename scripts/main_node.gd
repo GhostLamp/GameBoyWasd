@@ -3,16 +3,16 @@ class_name MainScene
 
 # pegando os nodes que vai precisar como variaveis
 #
-# @onready basicamente cria ums referencia a um node para que vc possa pegar coisas
+# @onready basicamente cria umas referencias a um node para que vc possa pegar coisas
 # ou alterar valores dele
 @onready var camera_2d: Camera2D = $Camera2D
 @onready var v_box_container: VBoxContainer = $inventario/VBoxContainer
-@onready var ultima_cena_gameboy:CenaGameboy = $GameBoyManager/PausaMenu
+@onready var ultima_cena_gameboy: CenaGameboy = $GameBoyManager/PausaMenu
 @onready var game_boy_manager: CanvasLayer = $GameBoyManager
 @onready var segura_cartucho: VBoxContainer = $GameBoyManager/seguraCartucho
 
 
-# pegano todos os lados da sala, os colocando em um array e guardando a lado atual 
+# pegando todos os lados da sala, os colocando em um array e guardando a lado atual 
 @onready var tela_1: Control = $"tela 1"
 @onready var tela_2: Control = $"tela 2"
 @onready var tela_3: Control = $"tela 3"
@@ -28,7 +28,7 @@ var tela_atual:int = 0:
 
 # os items que o jogador tem
 #
-# é definido assim {string:label}, a string é o nome do item, a a label é um texto que aparece
+# é definido assim {string:label}, a string é o nome do item, a label é um texto que aparece
 # na tela quando vc pega o item
 var items:Dictionary = {}
 
