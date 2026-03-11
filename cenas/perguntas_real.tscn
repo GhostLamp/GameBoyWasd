@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bc31b8vj8d3yo"]
+
+[ext_resource type="Script" uid="uid://c4j4v5aodew2d" path="res://cenas/perguntas_real.gd" id="1_d28o1"]
+
+[node name="perguntasReal" type="VBoxContainer" unique_id=571699586]
+offset_left = 256.0
+offset_top = 27.0
+offset_right = 456.0
+offset_bottom = 128.0
+script = ExtResource("1_d28o1")
+
+[node name="Label" type="Label" parent="." unique_id=731179818]
+layout_mode = 2
+text = "1 real"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="." unique_id=1196219971]
+layout_mode = 2
+text = "2 real"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="." unique_id=530977940]
+layout_mode = 2
+text = "3 real"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="." unique_id=2130461836]
+layout_mode = 2
+text = "4 real"
+horizontal_alignment = 1
