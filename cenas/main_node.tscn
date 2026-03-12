@@ -20,7 +20,12 @@
 [ext_resource type="PackedScene" uid="uid://deaadnmvo6anv" path="res://cenas/gameboy_porco_coiote.tscn" id="11_3ua1q"]
 [ext_resource type="Theme" uid="uid://b5ttd423pn7an" path="res://temaBotão.tres" id="12_i7wml"]
 [ext_resource type="Script" uid="uid://bbbqrqnhf583u" path="res://cenas/escorregaReal.gd" id="12_ofpu3"]
+[ext_resource type="Script" uid="uid://xa3th7xult35" path="res://scripts/usos/UsoChecarEnergia.gd" id="13_ks0dj"]
+[ext_resource type="Script" uid="uid://bamxgpmnrlgra" path="res://scripts/usos/UsoAparecer.gd" id="15_r2q1y"]
 [ext_resource type="PackedScene" uid="uid://dvsu786a14u7g" path="res://cenas/game_boy_escorregar.tscn" id="17_y0s78"]
+[ext_resource type="PackedScene" uid="uid://bc31b8vj8d3yo" path="res://cenas/perguntas_real.tscn" id="18_5xru3"]
+[ext_resource type="PackedScene" uid="uid://dqvba0qko027i" path="res://cenas/game_boy_perguntas.tscn" id="19_exacy"]
+[ext_resource type="Script" uid="uid://cydebj6scufll" path="res://scripts/usos/UsoLigarEnergia.gd" id="20_r2q1y"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_iw4ti"]
 font_size = 64
@@ -33,6 +38,9 @@ default_font_size = 32
 
 [sub_resource type="Theme" id="Theme_ofpu3"]
 default_font_size = 24
+
+[sub_resource type="Theme" id="Theme_ks0dj"]
+default_font_size = 16
 
 [sub_resource type="LabelSettings" id="LabelSettings_wx7xh"]
 font_size = 64
@@ -144,7 +152,6 @@ theme_override_font_sizes/font_size = 15
 text = "Cama"
 
 [node name="Abajur" type="Button" parent="tela 1" unique_id=1421230514]
-visible = false
 layout_mode = 0
 offset_left = 103.0
 offset_top = 277.0
@@ -154,8 +161,9 @@ theme = SubResource("Theme_3ua1q")
 text = "abajur"
 script = ExtResource("2_0ctr8")
 
-[node name="UsoTrocarCena" type="Node" parent="tela 1/Abajur" unique_id=1261596408]
+[node name="UsoTrocarCena" type="Node" parent="tela 1/Abajur" unique_id=1261596408 node_paths=PackedStringArray("target")]
 script = ExtResource("2_smd4x")
+target = NodePath("../../CenaAbajur")
 
 [node name="Cabeceira" type="Sprite2D" parent="tela 1" unique_id=98649145]
 position = Vector2(235, 498)
@@ -226,10 +234,6 @@ theme = SubResource("Theme_wx7xh")
 text = "bau"
 script = ExtResource("2_0ctr8")
 
-[node name="UsoChecarCodigo" type="Node" parent="tela 1/CenaBau/BauBloqueio" unique_id=1307629636 node_paths=PackedStringArray("target")]
-script = ExtResource("6_wx7xh")
-target = NodePath("../SenhaBaú")
-
 [node name="UsoApagar" type="Node" parent="tela 1/CenaBau/BauBloqueio" unique_id=64065797]
 script = ExtResource("4_i7wml")
 
@@ -241,12 +245,193 @@ offset_right = 383.0
 offset_bottom = 104.0
 resposta = Array[Color]([Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1)])
 
+[node name="CenaAbajur" type="Node2D" parent="tela 1" unique_id=1500413085]
+visible = false
+script = ExtResource("4_wx7xh")
+
+[node name="ColorRect" type="ColorRect" parent="tela 1/CenaAbajur" unique_id=1236061885]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.34706816, 0.34706834, 0.3470683, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="tela 1/CenaAbajur" unique_id=1670387133]
+offset_left = 312.0
+offset_top = 96.0
+offset_right = 792.0
+offset_bottom = 568.0
+color = Color(0.5354209, 0.5354209, 0.5354209, 1)
+
+[node name="SenhaAbajur" parent="tela 1/CenaAbajur" unique_id=691258234 instance=ExtResource("8_3ua1q")]
+offset_left = 472.0
+offset_top = 483.0
+offset_right = 600.0
+offset_bottom = 547.0
+resposta = Array[Color]([Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1)])
+
+[node name="escorregaReal" type="Node2D" parent="tela 1/CenaAbajur" unique_id=1511130454 node_paths=PackedStringArray("alvo")]
+position = Vector2(541, 288)
+script = ExtResource("12_ofpu3")
+passo = 128
+alvo = NodePath("../indicador")
+resposta = Array[Array]([[], [], [Vector2(0, -1), Vector2(0, 0), Vector2(0, 1)], [Vector2(0, -1), Vector2(0, 0), Vector2(0, 1)], [], [Vector2(0, -1), Vector2(0, 0), Vector2(0, 1)], [], []])
+
+[node name="ColorRect2" type="ColorRect" parent="tela 1/CenaAbajur/escorregaReal" unique_id=721830845]
+offset_left = -176.0
+offset_top = -176.0
+offset_right = -80.0
+offset_bottom = -80.0
+color = Color(0.99468845, 0, 0.047822274, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="tela 1/CenaAbajur/escorregaReal" unique_id=931898236]
+offset_left = -48.0
+offset_top = -48.0
+offset_right = 48.0
+offset_bottom = 48.0
+color = Color(0.8245396, 0.39109474, 0, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="tela 1/CenaAbajur/escorregaReal" unique_id=127346281]
+offset_left = -48.0
+offset_top = 80.0
+offset_right = 48.0
+offset_bottom = 176.0
+color = Color(1.0221529, 0.7718215, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="tela 1/CenaAbajur/escorregaReal/ColorRect4" unique_id=1767759897]
+layout_mode = 0
+offset_left = 72.0
+offset_right = 96.0
+offset_bottom = 96.0
+
+[node name="ColorRect2" type="ColorRect" parent="tela 1/CenaAbajur/escorregaReal/ColorRect4" unique_id=960111785]
+layout_mode = 0
+offset_right = 24.0
+offset_bottom = 96.0
+
+[node name="Label" type="Label" parent="tela 1/CenaAbajur/escorregaReal/ColorRect4" unique_id=1701343779]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 42.0
+offset_right = 50.0
+offset_bottom = 65.0
+text = "3"
+
+[node name="ColorRect5" type="ColorRect" parent="tela 1/CenaAbajur/escorregaReal" unique_id=1568415300]
+offset_left = 80.0
+offset_top = 80.0
+offset_right = 176.0
+offset_bottom = 176.0
+color = Color(0.6575042, 0.85513544, 1.540184e-06, 1)
+
+[node name="ColorRect" type="ColorRect" parent="tela 1/CenaAbajur/escorregaReal/ColorRect5" unique_id=538133899]
+layout_mode = 0
+offset_left = 72.0
+offset_right = 96.0
+offset_bottom = 96.0
+
+[node name="ColorRect2" type="ColorRect" parent="tela 1/CenaAbajur/escorregaReal/ColorRect5" unique_id=1091504916]
+layout_mode = 0
+offset_right = 24.0
+offset_bottom = 96.0
+
+[node name="Label" type="Label" parent="tela 1/CenaAbajur/escorregaReal/ColorRect5" unique_id=724558727]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 42.0
+offset_right = 50.0
+offset_bottom = 65.0
+text = "4"
+
+[node name="ColorRect6" type="ColorRect" parent="tela 1/CenaAbajur/escorregaReal" unique_id=671345119]
+offset_left = 80.0
+offset_top = -48.0
+offset_right = 176.0
+offset_bottom = 48.0
+color = Color(0, 0.56300277, 0.079510294, 1)
+
+[node name="ColorRect7" type="ColorRect" parent="tela 1/CenaAbajur/escorregaReal" unique_id=975507587]
+offset_left = -176.0
+offset_top = 80.0
+offset_right = -80.0
+offset_bottom = 176.0
+color = Color(5.7756904e-07, 0.56801045, 0.8341456, 1)
+
+[node name="ColorRect" type="ColorRect" parent="tela 1/CenaAbajur/escorregaReal/ColorRect7" unique_id=2030183797]
+layout_mode = 0
+offset_left = 72.0
+offset_right = 96.0
+offset_bottom = 96.0
+
+[node name="ColorRect2" type="ColorRect" parent="tela 1/CenaAbajur/escorregaReal/ColorRect7" unique_id=1781714732]
+layout_mode = 0
+offset_right = 24.0
+offset_bottom = 96.0
+
+[node name="Label" type="Label" parent="tela 1/CenaAbajur/escorregaReal/ColorRect7" unique_id=110509994]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 42.0
+offset_right = 50.0
+offset_bottom = 65.0
+text = "6"
+
+[node name="ColorRect8" type="ColorRect" parent="tela 1/CenaAbajur/escorregaReal" unique_id=1365482074]
+offset_left = 80.0
+offset_top = -176.0
+offset_right = 176.0
+offset_bottom = -80.0
+color = Color(0, 0.22576228, 0.57430285, 1)
+
+[node name="ColorRect9" type="ColorRect" parent="tela 1/CenaAbajur/escorregaReal" unique_id=446255964]
+offset_left = -176.0
+offset_top = -48.0
+offset_right = -80.0
+offset_bottom = 48.0
+color = Color(0.7150792, 0.2432906, 1, 1)
+
+[node name="indicador" type="ColorRect" parent="tela 1/CenaAbajur" unique_id=762908778]
+visible = false
+offset_left = 816.0
+offset_top = 200.0
+offset_right = 1000.0
+offset_bottom = 368.0
+color = Color(0.9899216, 0.11255946, 5.7756904e-07, 1)
+
+[node name="Button" type="Button" parent="tela 1/CenaAbajur" unique_id=1450882483]
+offset_left = 357.0
+offset_top = 480.0
+offset_right = 437.0
+offset_bottom = 557.0
+text = "ligar"
+script = ExtResource("2_0ctr8")
+
+[node name="UsoChecarEnergia" type="Node" parent="tela 1/CenaAbajur/Button" unique_id=1717298784 node_paths=PackedStringArray("target")]
+script = ExtResource("13_ks0dj")
+target = NodePath("../../SenhaAbajur")
+
+[node name="UsoChecarCodigo" type="Node" parent="tela 1/CenaAbajur/Button" unique_id=1307629636 node_paths=PackedStringArray("target")]
+script = ExtResource("6_wx7xh")
+target = NodePath("../../SenhaAbajur")
+
+[node name="UsoChecarCodigo2" type="Node" parent="tela 1/CenaAbajur/Button" unique_id=1169260493 node_paths=PackedStringArray("target")]
+script = ExtResource("6_wx7xh")
+target = NodePath("../../escorregaReal")
+
+[node name="UsoAparecer" type="Node" parent="tela 1/CenaAbajur/Button" unique_id=971454947 node_paths=PackedStringArray("target")]
+script = ExtResource("15_r2q1y")
+target = NodePath("../../indicador")
+
 [node name="tela 2" type="Control" parent="." unique_id=1486815253]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 1152.0
 offset_right = 2304.0
 offset_bottom = 648.0
+
+[node name="Cenário 2" type="Sprite2D" parent="tela 2" unique_id=1452809426]
+z_index = -1
+position = Vector2(575.4999, 324)
+scale = Vector2(2.9973955, 3.0092595)
+texture = ExtResource("2_ni4a3")
 
 [node name="Label2" type="Label" parent="tela 2" unique_id=1774858801]
 z_index = 3
@@ -259,7 +444,6 @@ text = "LADO 2"
 label_settings = SubResource("LabelSettings_iw4ti")
 
 [node name="armario" type="Button" parent="tela 2" unique_id=1501448389]
-z_index = 3
 layout_mode = 0
 offset_left = 280.0
 offset_top = 160.0
@@ -275,7 +459,6 @@ script = ExtResource("2_smd4x")
 target = NodePath("../../CenaArmario")
 
 [node name="BotaoCestoRoupas" type="Button" parent="tela 2" unique_id=1597980378]
-z_index = 3
 layout_mode = 0
 offset_left = 744.0
 offset_top = 504.0
@@ -359,18 +542,17 @@ offset_top = 296.0
 offset_right = 656.0
 offset_bottom = 520.0
 
-[node name="Cenário 2" type="Sprite2D" parent="tela 2" unique_id=1452809426]
-z_index = -1
-position = Vector2(575.4999, 324)
-scale = Vector2(2.9973955, 3.0092595)
-texture = ExtResource("2_ni4a3")
-
 [node name="tela 3" type="Control" parent="." unique_id=1757040761]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 2304.0
 offset_right = 3456.0
 offset_bottom = 648.0
+
+[node name="Cenário 3" type="Sprite2D" parent="tela 3" unique_id=1781743331]
+position = Vector2(576.5, 324)
+scale = Vector2(3.0078127, 3.0185187)
+texture = ExtResource("2_ni4a3")
 
 [node name="Label2" type="Label" parent="tela 3" unique_id=82724811]
 layout_mode = 0
@@ -452,12 +634,6 @@ v
 r
 o"
 
-[node name="Cenário 3" type="Sprite2D" parent="tela 3" unique_id=1781743331]
-z_index = -1
-position = Vector2(576.50006, 324)
-scale = Vector2(3.0078127, 3.0185187)
-texture = ExtResource("2_ni4a3")
-
 [node name="EscorregaPeças" type="Node2D" parent="tela 3" unique_id=1152728975]
 visible = false
 script = ExtResource("4_wx7xh")
@@ -482,6 +658,10 @@ theme = SubResource("Theme_3ua1q")
 text = "objeto"
 script = ExtResource("2_0ctr8")
 
+[node name="UsoChecarCodigo" type="Node" parent="tela 3/EscorregaPeças/chave" unique_id=290306749 node_paths=PackedStringArray("target")]
+script = ExtResource("6_wx7xh")
+target = NodePath("../../../../tela 1/CenaAbajur/escorregaReal")
+
 [node name="UsoColetavel" type="Node" parent="tela 3/EscorregaPeças/chave" unique_id=1716808246]
 script = ExtResource("5_i7wml")
 item = "Chave de armario"
@@ -494,12 +674,7 @@ position = Vector2(576, 320)
 script = ExtResource("12_ofpu3")
 passo = 128
 alvo = NodePath("../Bloqueio")
-resposta = {
-0: Vector2(-1, -1),
-1: Vector2(1, -1),
-4: Vector2(-1, 1),
-7: Vector2(1, 1)
-}
+resposta = Array[Array]([[Vector2(-1, -1)], [Vector2(1, -1)], [], [], [Vector2(-1, 1)], [], [], [Vector2(1, 1)]])
 
 [node name="ColorRect2" type="ColorRect" parent="tela 3/EscorregaPeças/escorregaReal" unique_id=1147608870]
 offset_left = -176.0
@@ -614,6 +789,7 @@ offset_bottom = 79.0
 text = "8"
 
 [node name="Bloqueio" type="ColorRect" parent="tela 3/EscorregaPeças" unique_id=526026967]
+visible = false
 offset_left = 384.0
 offset_top = 128.0
 offset_right = 768.0
@@ -643,6 +819,11 @@ offset_left = 3456.0
 offset_right = 4608.0
 offset_bottom = 648.0
 
+[node name="Cenário 4" type="Sprite2D" parent="tela 4" unique_id=1309661745]
+position = Vector2(578, 324.44598)
+scale = Vector2(3.000001, 3.0051293)
+texture = ExtResource("2_ni4a3")
+
 [node name="Label2" type="Label" parent="tela 4" unique_id=149913586]
 layout_mode = 0
 offset_left = 448.0
@@ -661,11 +842,101 @@ offset_bottom = 648.0
 theme_override_font_sizes/font_size = 39
 text = "Porta"
 
-[node name="Cenário 4" type="Sprite2D" parent="tela 4" unique_id=1309661745]
-z_index = -1
-position = Vector2(578, 324.44598)
-scale = Vector2(3.000001, 3.0051293)
-texture = ExtResource("2_ni4a3")
+[node name="Button2" type="Button" parent="tela 4" unique_id=414644022]
+layout_mode = 0
+offset_left = 664.0
+offset_top = 221.0
+offset_right = 852.0
+offset_bottom = 424.0
+theme_override_font_sizes/font_size = 39
+text = "negocio
+eletrico"
+script = ExtResource("2_0ctr8")
+
+[node name="UsoTrocarCena" type="Node" parent="tela 4/Button2" unique_id=1844399551 node_paths=PackedStringArray("target")]
+script = ExtResource("2_smd4x")
+target = NodePath("../../CenaEletrico")
+
+[node name="CenaEletrico" type="Node2D" parent="tela 4" unique_id=722656447]
+visible = false
+script = ExtResource("4_wx7xh")
+
+[node name="ColorRect" type="ColorRect" parent="tela 4/CenaEletrico" unique_id=536635170]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.34706816, 0.34706834, 0.3470683, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="tela 4/CenaEletrico" unique_id=14270666]
+offset_left = 288.0
+offset_top = 160.0
+offset_right = 760.0
+offset_bottom = 496.0
+color = Color(0.21230507, 0.21230474, 0.21230489, 1)
+
+[node name="perguntasReal" parent="tela 4/CenaEletrico" unique_id=571699586 node_paths=PackedStringArray("alvo") instance=ExtResource("18_5xru3")]
+offset_left = 384.0
+offset_top = 215.0
+offset_right = 488.0
+offset_bottom = 319.0
+alvo = NodePath("")
+resposta = Array[int]([2, 3, 0, 1])
+
+[node name="Label" type="Label" parent="tela 4/CenaEletrico/perguntasReal" unique_id=705955312]
+layout_mode = 2
+size_flags_vertical = 6
+text = "a galinha"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="tela 4/CenaEletrico/perguntasReal" unique_id=1672054527]
+layout_mode = 2
+size_flags_vertical = 6
+text = "amanha"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="tela 4/CenaEletrico/perguntasReal" unique_id=1926276483]
+layout_mode = 2
+size_flags_vertical = 6
+text = "anomalacaris"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="tela 4/CenaEletrico/perguntasReal" unique_id=30664633]
+layout_mode = 2
+size_flags_vertical = 6
+text = "o ovo"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="tela 4/CenaEletrico" unique_id=2006516289]
+offset_left = 576.0
+offset_top = 224.0
+offset_right = 680.0
+offset_bottom = 312.0
+text = "alavanca"
+script = ExtResource("2_0ctr8")
+
+[node name="UsoChecarCodigo" type="Node" parent="tela 4/CenaEletrico/Button" unique_id=1018868949 node_paths=PackedStringArray("target")]
+script = ExtResource("6_wx7xh")
+target = NodePath("../../perguntasReal")
+
+[node name="UsoLigarEnergia" type="Node" parent="tela 4/CenaEletrico/Button" unique_id=1751321067 node_paths=PackedStringArray("target")]
+script = ExtResource("20_r2q1y")
+target = NodePath("../../../../tela 1/CenaAbajur/escorregaReal")
+
+[node name="perguntasColetavel" type="Button" parent="tela 4/CenaEletrico" unique_id=747980068]
+offset_left = 632.0
+offset_top = 379.0
+offset_right = 741.0
+offset_bottom = 483.0
+theme = SubResource("Theme_ks0dj")
+text = "Quem veio
+antes"
+script = ExtResource("2_0ctr8")
+
+[node name="UsoJogoColetavel" type="Node" parent="tela 4/CenaEletrico/perguntasColetavel" unique_id=1076569716]
+script = ExtResource("10_wx7xh")
+jogo = ExtResource("19_exacy")
+
+[node name="UsoApagar" type="Node" parent="tela 4/CenaEletrico/perguntasColetavel" unique_id=4429909]
+script = ExtResource("4_i7wml")
 
 [node name="GameBoyManager" type="CanvasLayer" parent="." unique_id=28149663]
 visible = false

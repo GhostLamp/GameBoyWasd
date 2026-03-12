@@ -1,8 +1,9 @@
 [gd_scene format=4 uid="uid://dqvba0qko027i"]
 
 [ext_resource type="Texture2D" uid="uid://c8qjdjiyhlhap" path="res://Selection 2025-11-26T15.43.05.png" id="1_2a8xj"]
+[ext_resource type="Script" uid="uid://c24k3rmj3lawr" path="res://scripts/cena_gameboy.gd" id="1_pupxk"]
 [ext_resource type="Script" uid="uid://cttpryputpp34" path="res://v_box_container.gd" id="2_2a8xj"]
-[ext_resource type="PackedScene" uid="uid://bc31b8vj8d3yo" path="res://cenas/perguntas_real.tscn" id="3_k3efj"]
+[ext_resource type="PackedScene" uid="uid://cyje48mccihcc" path="res://cenas/cartucho.tscn" id="2_m7u1y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pupxk"]
 texture = ExtResource("1_2a8xj")
@@ -77,6 +78,9 @@ font_color = Color(0, 0, 0, 1)
 font_size = 32
 
 [node name="GameBoyPerguntas" type="Node2D" unique_id=1269440812]
+script = ExtResource("1_pupxk")
+cenaCartucho = ExtResource("2_m7u1y")
+nome = "Quem veio Antes"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=91094149]
 tile_map_data = PackedByteArray("AAADAAQAAQAKAAAAAAADAAUAAQAKAAAAAAADAAYAAQAKAAAAAAADAAcAAQAKAAAAAAADAAgAAQAKAAAAAAAEAAQAAQAKAAAAAAAEAAUAAQAKAAAAAAAEAAYAAQAKAAAAAAAEAAcAAQAKAAAAAAAEAAgAAQAKAAAAAAAFAAQAAQAKAAAAAAAFAAUAAQAKAAAAAAAFAAYAAQAKAAAAAAAFAAcAAQAKAAAAAAAFAAgAAQAKAAAAAAAGAAQAAQAKAAAAAAAGAAUAAQAKAAAAAAAGAAYAAQAKAAAAAAAGAAcAAQAKAAAAAAAGAAgAAQAKAAAAAAAHAAQAAQAKAAAAAAAHAAUAAQAKAAAAAAAHAAYAAQAKAAAAAAAHAAcAAQAKAAAAAAAHAAgAAQAKAAAAAAACAAMAAQAKAAEAAAACAAQAAQAKAAEAAAACAAUAAQAKAAEAAAACAAYAAQAKAAEAAAACAAcAAQAKAAEAAAACAAgAAQAKAAEAAAACAAkAAQAKAAEAAAADAAMAAQAKAAEAAAADAAkAAQAKAAEAAAAEAAMAAQAKAAEAAAAEAAkAAQAKAAEAAAAFAAMAAQAKAAEAAAAFAAkAAQAKAAEAAAAGAAMAAQAKAAEAAAAGAAkAAQAKAAEAAAAHAAMAAQAKAAEAAAAHAAkAAQAKAAEAAAAIAAMAAQAKAAEAAAAIAAQAAQAKAAEAAAAIAAUAAQAKAAEAAAAIAAYAAQAKAAEAAAAIAAcAAQAKAAEAAAAIAAgAAQAKAAEAAAAIAAkAAQAKAAEAAAA=")
@@ -153,5 +157,3 @@ text = "qual é o mais
 antigo?"
 label_settings = SubResource("LabelSettings_3pgjb")
 horizontal_alignment = 1
-
-[node name="perguntasReal" parent="." unique_id=571699586 instance=ExtResource("3_k3efj")]

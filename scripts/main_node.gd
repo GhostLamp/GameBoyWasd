@@ -33,7 +33,9 @@ var tela_atual:int = 0:
 var items:Dictionary = {}
 
 var foco_atual:Node2D = self
-
+var noGameboy:bool = false
+var ultima_cena_real = self
+var eletricidade:bool = false
 
 func _ready() -> void:
 	telas = [tela_1,tela_2,tela_3,tela_4]
@@ -60,10 +62,12 @@ func _process(delta: float) -> void:
 	# isso funcionaria na função input, mas eu quero que isso sempre esteja ativo
 	# ent dexei no process
 	if Input.is_action_just_pressed("espaço"):
-		if foco_atual is CenaGameboy:
-			gameBoy_trocar(self)
+		if noGameboy:
+			gameBoy_trocar(ultima_cena_real)
+			noGameboy = false
 		else:
 			gameBoy_trocar(ultima_cena_gameboy)
+			noGameboy = true
 	
 	if Input.is_action_just_pressed("baixo") and foco_atual is CenaReal:
 		set_cena_ativa(self)
@@ -104,7 +108,8 @@ func gameBoy_trocar(novoFoco:Node2D):
 	
 	if novoFoco is CenaGameboy:
 		ultima_cena_gameboy = novoFoco
-	
+	else:
+		ultima_cena_real = novoFoco
 	
 	game_boy_manager.hide()
 	set_cena_ativa(novoFoco)
