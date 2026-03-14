@@ -9,16 +9,17 @@ var posicoes:Array = []
 func _ready() -> void:
 	add_to_group("perguntasReal")
 	
-	for i in get_children():
-		pecas.append(i)
+	pecas = get_children()
 
-func checarSolução():
+func checarCodigo():
 	if resposta == posicoes:
-		alvo.visible = false
-	else:
-		alvo.visible = true
+		return true
+	return false
 
 func set_resposta(nova_resposta:Array):
 	posicoes = nova_resposta
+	
+	
 	for i in nova_resposta.size():
 		move_child(pecas[nova_resposta[i]],i)
+	

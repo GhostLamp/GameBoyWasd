@@ -8,23 +8,3 @@ offset_top = 27.0
 offset_right = 456.0
 offset_bottom = 128.0
 script = ExtResource("1_d28o1")
-
-[node name="Label" type="Label" parent="." unique_id=731179818]
-layout_mode = 2
-text = "1 real"
-horizontal_alignment = 1
-
-[node name="Label2" type="Label" parent="." unique_id=1196219971]
-layout_mode = 2
-text = "2 real"
-horizontal_alignment = 1
-
-[node name="Label3" type="Label" parent="." unique_id=530977940]
-layout_mode = 2
-text = "3 real"
-horizontal_alignment = 1
-
-[node name="Label4" type="Label" parent="." unique_id=2130461836]
-layout_mode = 2
-text = "4 real"
-horizontal_alignment = 1

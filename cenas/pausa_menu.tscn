@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://bccovp6lnbqlm"]
+
+[ext_resource type="Script" uid="uid://c24k3rmj3lawr" path="res://scripts/cena_gameboy.gd" id="1_vude3"]
+[ext_resource type="PackedScene" uid="uid://cyje48mccihcc" path="res://cenas/cartucho.tscn" id="2_l1qd7"]
+[ext_resource type="Theme" uid="uid://b5ttd423pn7an" path="res://temaBotão.tres" id="3_6psmr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wx7xh"]
+font_size = 48
+
+[node name="PausaMenu" type="Node2D" unique_id=1573190343]
+script = ExtResource("1_vude3")
+cenaCartucho = ExtResource("2_l1qd7")
+nome = "pause o mundo"
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1492621493]
+offset_left = 376.0
+offset_top = 168.0
+offset_right = 792.0
+offset_bottom = 552.0
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=325756015]
+offset_left = 416.0
+offset_top = 192.0
+offset_right = 736.0
+offset_bottom = 488.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=2033912511]
+layout_mode = 2
+size_flags_vertical = 3
+text = "pause o
+mundo"
+label_settings = SubResource("LabelSettings_wx7xh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BotaoVoltarMenu" type="Button" parent="VBoxContainer" unique_id=1946557039]
+layout_mode = 2
+theme = ExtResource("3_6psmr")
+text = "Voltar para o 
+menu Principal"
+
+[connection signal="pressed" from="VBoxContainer/BotaoVoltarMenu" to="." method="_sair_do_jogo"]

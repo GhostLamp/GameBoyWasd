@@ -20,7 +20,7 @@ func _ready() -> void:
 	set_process_input(false)
 
 func _physics_process(_delta: float) -> void:
-	var pai:CenaGameboy = get_parent()
+	var pai:CenaGameboy = get_parent().get_parent()
 	
 	if !pai.ativo:
 		return

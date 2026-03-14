@@ -1,8 +1,9 @@
 [gd_scene format=4 uid="uid://dqvba0qko027i"]
 
 [ext_resource type="Texture2D" uid="uid://c8qjdjiyhlhap" path="res://Selection 2025-11-26T15.43.05.png" id="1_2a8xj"]
+[ext_resource type="Script" uid="uid://c24k3rmj3lawr" path="res://scripts/cena_gameboy.gd" id="1_pupxk"]
 [ext_resource type="Script" uid="uid://cttpryputpp34" path="res://v_box_container.gd" id="2_2a8xj"]
-[ext_resource type="PackedScene" uid="uid://bc31b8vj8d3yo" path="res://cenas/perguntas_real.tscn" id="3_k3efj"]
+[ext_resource type="PackedScene" uid="uid://cyje48mccihcc" path="res://cenas/cartucho.tscn" id="2_m7u1y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pupxk"]
 texture = ExtResource("1_2a8xj")
@@ -77,16 +78,19 @@ font_color = Color(0, 0, 0, 1)
 font_size = 32
 
 [node name="GameBoyPerguntas" type="Node2D" unique_id=1269440812]
+script = ExtResource("1_pupxk")
+cenaCartucho = ExtResource("2_m7u1y")
+nome = "Quem veio Antes"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=91094149]
-tile_map_data = PackedByteArray("AAADAAQAAQAKAAAAAAADAAUAAQAKAAAAAAADAAYAAQAKAAAAAAADAAcAAQAKAAAAAAADAAgAAQAKAAAAAAAEAAQAAQAKAAAAAAAEAAUAAQAKAAAAAAAEAAYAAQAKAAAAAAAEAAcAAQAKAAAAAAAEAAgAAQAKAAAAAAAFAAQAAQAKAAAAAAAFAAUAAQAKAAAAAAAFAAYAAQAKAAAAAAAFAAcAAQAKAAAAAAAFAAgAAQAKAAAAAAAGAAQAAQAKAAAAAAAGAAUAAQAKAAAAAAAGAAYAAQAKAAAAAAAGAAcAAQAKAAAAAAAGAAgAAQAKAAAAAAAHAAQAAQAKAAAAAAAHAAUAAQAKAAAAAAAHAAYAAQAKAAAAAAAHAAcAAQAKAAAAAAAHAAgAAQAKAAAAAAACAAMAAQAKAAEAAAACAAQAAQAKAAEAAAACAAUAAQAKAAEAAAACAAYAAQAKAAEAAAACAAcAAQAKAAEAAAACAAgAAQAKAAEAAAACAAkAAQAKAAEAAAADAAMAAQAKAAEAAAADAAkAAQAKAAEAAAAEAAMAAQAKAAEAAAAEAAkAAQAKAAEAAAAFAAMAAQAKAAEAAAAFAAkAAQAKAAEAAAAGAAMAAQAKAAEAAAAGAAkAAQAKAAEAAAAHAAMAAQAKAAEAAAAHAAkAAQAKAAEAAAAIAAMAAQAKAAEAAAAIAAQAAQAKAAEAAAAIAAUAAQAKAAEAAAAIAAYAAQAKAAEAAAAIAAcAAQAKAAEAAAAIAAgAAQAKAAEAAAAIAAkAAQAKAAEAAAA=")
+tile_map_data = PackedByteArray("AAAFAAQAAQAKAAAAAAAFAAUAAQAKAAAAAAAFAAYAAQAKAAAAAAAFAAcAAQAKAAAAAAAFAAgAAQAKAAAAAAAGAAQAAQAKAAAAAAAGAAUAAQAKAAAAAAAGAAYAAQAKAAAAAAAGAAcAAQAKAAAAAAAGAAgAAQAKAAAAAAAHAAQAAQAKAAAAAAAHAAUAAQAKAAAAAAAHAAYAAQAKAAAAAAAHAAcAAQAKAAAAAAAHAAgAAQAKAAAAAAAFAAMAAQAKAAAAAAAGAAMAAQAKAAAAAAAHAAMAAQAKAAAAAAAIAAMAAQAKAAAAAAAIAAQAAQAKAAAAAAAIAAUAAQAKAAAAAAAIAAYAAQAKAAAAAAAIAAcAAQAKAAAAAAAIAAgAAQAKAAAAAAAFAAIAAQAKAAAAAAAGAAIAAQAKAAAAAAAHAAIAAQAKAAAAAAAIAAIAAQAKAAAAAAAJAAIAAQAKAAAAAAAJAAMAAQAKAAAAAAAJAAQAAQAKAAAAAAAJAAUAAQAKAAAAAAAJAAYAAQAKAAAAAAAJAAcAAQAKAAAAAAAKAAIAAQAKAAAAAAAKAAMAAQAKAAAAAAAKAAQAAQAKAAAAAAAKAAUAAQAKAAAAAAAKAAYAAQAKAAAAAAAKAAcAAQAKAAAAAAALAAIAAQAKAAAAAAALAAMAAQAKAAAAAAALAAQAAQAKAAAAAAALAAUAAQAKAAAAAAALAAYAAQAKAAAAAAALAAcAAQAKAAAAAAAMAAIAAQAKAAAAAAAMAAMAAQAKAAAAAAAMAAQAAQAKAAAAAAAMAAUAAQAKAAAAAAAMAAYAAQAKAAAAAAAMAAcAAQAKAAAAAAAJAAgAAQAKAAAAAAAKAAgAAQAKAAAAAAALAAgAAQAKAAAAAAAMAAgAAQAKAAAAAAA=")
 tile_set = SubResource("TileSet_m7u1y")
 
 [node name="FundoDaResposta" type="ColorRect" parent="." unique_id=1822442331]
-offset_left = 192.0
-offset_top = 360.0
-offset_right = 512.0
-offset_bottom = 405.0
+offset_left = 416.0
+offset_top = 312.0
+offset_right = 736.0
+offset_bottom = 357.0
 color = Color(0.67392164, 0.74647635, 0, 1)
 
 [node name="cetinhas" type="Node2D" parent="FundoDaResposta" unique_id=1221735228]
@@ -110,10 +114,10 @@ label_settings = SubResource("LabelSettings_k3efj")
 horizontal_alignment = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1157696890]
-offset_left = 264.0
-offset_top = 360.0
-offset_right = 440.0
-offset_bottom = 552.0
+offset_left = 488.0
+offset_top = 312.0
+offset_right = 664.0
+offset_bottom = 504.0
 script = ExtResource("2_2a8xj")
 
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=229377161]
@@ -145,13 +149,11 @@ label_settings = SubResource("LabelSettings_3pgjb")
 horizontal_alignment = 1
 
 [node name="Label" type="Label" parent="." unique_id=597884631]
-offset_left = 240.0
-offset_top = 256.0
-offset_right = 453.0
-offset_bottom = 349.0
+offset_left = 464.0
+offset_top = 208.0
+offset_right = 677.0
+offset_bottom = 301.0
 text = "qual é o mais 
 antigo?"
 label_settings = SubResource("LabelSettings_3pgjb")
 horizontal_alignment = 1
-
-[node name="perguntasReal" parent="." unique_id=571699586 instance=ExtResource("3_k3efj")]

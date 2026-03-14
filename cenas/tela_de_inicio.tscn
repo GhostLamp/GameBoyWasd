@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://2jk3rhhedg4j" path="res://scripts/tela_de_inicio.gd" id="1_7172y"]
 [ext_resource type="Theme" uid="uid://b5ttd423pn7an" path="res://temaBotão.tres" id="2_xmwh4"]
+[ext_resource type="Texture2D" uid="uid://c0fi2nh5fbe52" path="res://artes/gameboy/gameboy_frente.png" id="3_xmwh4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_airxq"]
 font_size = 64
@@ -9,16 +10,24 @@ font_size = 64
 [node name="telaDeInicio" type="Node2D" unique_id=548252511]
 script = ExtResource("1_7172y")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=539901678]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1909999835]
 offset_right = 1152.0
-offset_bottom = 448.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=539901678]
+offset_left = 376.0
+offset_top = 160.0
+offset_right = 784.0
+offset_bottom = 528.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=904636161]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Nome do jogo"
+text = "CURRUPTED
+MEMORY"
 label_settings = SubResource("LabelSettings_airxq")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -32,6 +41,12 @@ text = "Iniciar"
 layout_mode = 2
 theme = ExtResource("2_xmwh4")
 text = "Sair"
+
+[node name="GameboyFrente" type="Sprite2D" parent="." unique_id=950534102]
+z_index = 1
+position = Vector2(576, 328)
+scale = Vector2(3, 3)
+texture = ExtResource("3_xmwh4")
 
 [connection signal="pressed" from="VBoxContainer/BotaoIniciar" to="." method="_on_botao_iniciar_pressed"]
 [connection signal="pressed" from="VBoxContainer/BotaoSair" to="." method="_on_botao_sair_pressed"]

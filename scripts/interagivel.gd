@@ -1,5 +1,5 @@
 class_name Interagivel
-extends CanvasItem
+extends Button
 
 # esse codigo permite que um item seja interagivel
 
@@ -14,6 +14,7 @@ var usos:Array[Uso]
 # pega todos os nodes que são filhos desse e são Uso e coloca eles no array  
 func _ready() -> void:
 	connect("button_down",usar)
+	focus_mode  = Control.FOCUS_NONE
 	
 	for i in get_children():
 		if i is Uso:

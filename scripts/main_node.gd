@@ -3,16 +3,16 @@ class_name MainScene
 
 # pegando os nodes que vai precisar como variaveis
 #
-# @onready basicamente cria ums referencia a um node para que vc possa pegar coisas
+# @onready basicamente cria umas referencias a um node para que vc possa pegar coisas
 # ou alterar valores dele
 @onready var camera_2d: Camera2D = $Camera2D
 @onready var v_box_container: VBoxContainer = $inventario/VBoxContainer
-@onready var ultima_cena_gameboy:CenaGameboy = $GameBoyManager/PausaMenu
+@onready var ultima_cena_gameboy: CenaGameboy = $GameBoyManager/PausaMenu
 @onready var game_boy_manager: CanvasLayer = $GameBoyManager
 @onready var segura_cartucho: VBoxContainer = $GameBoyManager/seguraCartucho
 
 
-# pegano todos os lados da sala, os colocando em um array e guardando a lado atual 
+# pegando todos os lados da sala, os colocando em um array e guardando a lado atual 
 @onready var tela_1: Control = $"tela 1"
 @onready var tela_2: Control = $"tela 2"
 @onready var tela_3: Control = $"tela 3"
@@ -28,17 +28,19 @@ var tela_atual:int = 0:
 
 # os items que o jogador tem
 #
-# é definido assim {string:label}, a string é o nome do item, a a label é um texto que aparece
+# é definido assim {string:label}, a string é o nome do item, a label é um texto que aparece
 # na tela quando vc pega o item
 var items:Dictionary = {}
 
 var foco_atual:Node2D = self
-
+var noGameboy:bool = true
+var ultima_cena_real = self
+var eletricidade:bool = false
 
 func _ready() -> void:
 	telas = [tela_1,tela_2,tela_3,tela_4]
 	camera_2d.position = telas[tela_atual].position
-	game_boy_manager.hide()
+	game_boy_manager.visible = true
 
 # a função _input(event: InputEvent) roda toda vez que vc toca em uma tecla
 # e retorna a tecla como event
@@ -60,13 +62,15 @@ func _process(delta: float) -> void:
 	# isso funcionaria na função input, mas eu quero que isso sempre esteja ativo
 	# ent dexei no process
 	if Input.is_action_just_pressed("espaço"):
-		if foco_atual is CenaGameboy:
-			gameBoy_trocar(self)
+		if noGameboy:
+			gameBoy_trocar(ultima_cena_real)
+			noGameboy = false
 		else:
 			gameBoy_trocar(ultima_cena_gameboy)
+			noGameboy = true
 	
 	if Input.is_action_just_pressed("baixo") and foco_atual is CenaReal:
-		set_cena_ativa(self)
+		gameBoy_trocar(self)
 
 # função pra adicionar um item no dicionario
 func adicionar_item(item:String):
@@ -104,7 +108,8 @@ func gameBoy_trocar(novoFoco:Node2D):
 	
 	if novoFoco is CenaGameboy:
 		ultima_cena_gameboy = novoFoco
-	
+	else:
+		ultima_cena_real = novoFoco
 	
 	game_boy_manager.hide()
 	set_cena_ativa(novoFoco)
@@ -127,7 +132,5 @@ func set_cena_ativa(novoFoco:Node2D):
 	
 	if novoFoco.has_method("ativarCena"):
 		novoFoco.ativarCena()
-	
-	
 	
 	foco_atual = novoFoco
