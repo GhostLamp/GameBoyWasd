@@ -78,50 +78,51 @@ player = NodePath("Seletor")
 cenaCartucho = ExtResource("2_jr312")
 nome = "slidzzz"
 
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=726710734]
-tile_map_data = PackedByteArray("AAADAAQAAQAKAAAAAAADAAUAAQAKAAAAAAADAAYAAQAKAAAAAAADAAcAAQAKAAAAAAADAAgAAQAKAAAAAAAEAAQAAQAKAAAAAAAEAAUAAQAKAAAAAAAEAAYAAQAKAAAAAAAEAAcAAQAKAAAAAAAEAAgAAQAKAAAAAAAFAAQAAQAKAAAAAAAFAAUAAQAKAAAAAAAFAAYAAQAKAAAAAAAFAAcAAQAKAAAAAAAFAAgAAQAKAAAAAAAGAAQAAQAKAAAAAAAGAAUAAQAKAAAAAAAGAAYAAQAKAAAAAAAGAAcAAQAKAAAAAAAGAAgAAQAKAAAAAAAHAAQAAQAKAAAAAAAHAAUAAQAKAAAAAAAHAAYAAQAKAAAAAAAHAAcAAQAKAAAAAAAHAAgAAQAKAAAAAAACAAMAAQAKAAEAAAACAAQAAQAKAAEAAAACAAUAAQAKAAEAAAACAAYAAQAKAAEAAAACAAcAAQAKAAEAAAACAAgAAQAKAAEAAAACAAkAAQAKAAEAAAADAAMAAQAKAAEAAAADAAkAAQAKAAEAAAAEAAMAAQAKAAEAAAAEAAkAAQAKAAEAAAAFAAMAAQAKAAEAAAAFAAkAAQAKAAEAAAAGAAMAAQAKAAEAAAAGAAkAAQAKAAEAAAAHAAMAAQAKAAEAAAAHAAkAAQAKAAEAAAAIAAMAAQAKAAEAAAAIAAQAAQAKAAEAAAAIAAUAAQAKAAEAAAAIAAYAAQAKAAEAAAAIAAcAAQAKAAEAAAAIAAgAAQAKAAEAAAAIAAkAAQAKAAEAAAA=")
-tile_set = SubResource("TileSet_jr312")
-
 [node name="background" type="Node2D" parent="." unique_id=20919174]
 
-[node name="ColorRect" type="ColorRect" parent="background" unique_id=1933162748]
-offset_left = 192.0
-offset_top = 256.0
-offset_right = 512.0
-offset_bottom = 576.0
+[node name="ColorRect" type="ColorRect" parent="background" unique_id=1250789966]
+offset_left = 376.0
+offset_top = 168.0
+offset_right = 784.0
+offset_bottom = 544.0
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=726710734]
+position = Vector2(224, -63)
+tile_map_data = PackedByteArray("AAAFAAUAAQACAAQAAAAFAAQAAQACAAQAAAAEAAQAAQACAAQAAAADAAQAAQACAAQAAAADAAUAAQACAAQAAAADAAYAAQACAAQAAAADAAcAAQACAAQAAAADAAgAAQACAAQAAAAEAAgAAQACAAQAAAAEAAcAAQACAAQAAAAEAAYAAQACAAQAAAAEAAUAAQACAAQAAAAFAAYAAQACAAQAAAAFAAcAAQACAAQAAAAFAAgAAQACAAQAAAAGAAgAAQACAAQAAAAGAAcAAQACAAQAAAAGAAYAAQACAAQAAAAGAAUAAQACAAQAAAAGAAQAAQACAAQAAAAHAAQAAQACAAQAAAAHAAUAAQACAAQAAAAHAAYAAQACAAQAAAAHAAcAAQACAAQAAAAHAAgAAQACAAQAAAAGAAMAAQAKAAEAAAAFAAMAAQAKAAEAAAAEAAMAAQAKAAEAAAADAAMAAQAKAAEAAAACAAMAAQAKAAEAAAACAAQAAQAKAAEAAAACAAUAAQAKAAEAAAACAAYAAQAKAAEAAAACAAcAAQAKAAEAAAACAAgAAQAKAAEAAAACAAkAAQAKAAEAAAADAAkAAQAKAAEAAAAEAAkAAQAKAAEAAAAFAAkAAQAKAAEAAAAGAAkAAQAKAAEAAAAHAAkAAQAKAAEAAAAIAAkAAQAKAAEAAAAIAAgAAQAKAAEAAAAIAAcAAQAKAAEAAAAIAAYAAQAKAAEAAAAIAAUAAQAKAAEAAAAIAAQAAQAKAAEAAAAIAAMAAQAKAAEAAAAHAAMAAQAKAAEAAAA=")
+tile_set = SubResource("TileSet_jr312")
 
 [node name="SeguraPeca" type="Node2D" parent="." unique_id=1972947690]
 
 [node name="PecaEscorregadia" parent="SeguraPeca" unique_id=311692359 instance=ExtResource("2_vahgs")]
-position = Vector2(248, 312)
+position = Vector2(472, 248)
 
 [node name="PecaEscorregadia2" parent="SeguraPeca" unique_id=1329143182 instance=ExtResource("2_vahgs")]
-position = Vector2(352, 416)
+position = Vector2(576, 352)
 numero = 2
 
 [node name="PecaEscorregadia3" parent="SeguraPeca" unique_id=689661178 instance=ExtResource("2_vahgs")]
-position = Vector2(352, 520)
+position = Vector2(576, 456)
 numero = 3
 
 [node name="PecaEscorregadia4" parent="SeguraPeca" unique_id=680862929 instance=ExtResource("2_vahgs")]
-position = Vector2(456, 520)
+position = Vector2(680, 456)
 numero = 4
 
 [node name="PecaEscorregadia5" parent="SeguraPeca" unique_id=2043470420 instance=ExtResource("2_vahgs")]
-position = Vector2(456, 416)
+position = Vector2(680, 352)
 numero = 5
 
 [node name="PecaEscorregadia6" parent="SeguraPeca" unique_id=270052373 instance=ExtResource("2_vahgs")]
-position = Vector2(248, 520)
+position = Vector2(472, 456)
 numero = 6
 
 [node name="PecaEscorregadia7" parent="SeguraPeca" unique_id=94017044 instance=ExtResource("2_vahgs")]
-position = Vector2(456, 312)
+position = Vector2(680, 248)
 numero = 7
 
 [node name="PecaEscorregadia8" parent="SeguraPeca" unique_id=1054384476 instance=ExtResource("2_vahgs")]
-position = Vector2(248, 416)
+position = Vector2(472, 352)
 numero = 8
 
 [node name="Seletor" parent="." unique_id=321541725 instance=ExtResource("3_vahgs")]
-position = Vector2(248, 312)
+position = Vector2(472, 248)

@@ -9,16 +9,13 @@
 [ext_resource type="Script" uid="uid://kxcgp0pjsf2x" path="res://scripts/cena_real.gd" id="4_wx7xh"]
 [ext_resource type="Script" uid="uid://c8a5l4cagrt2f" path="res://scripts/usos/UsoAdicionarItem.gd" id="5_i7wml"]
 [ext_resource type="Texture2D" uid="uid://c8qjdjiyhlhap" path="res://Selection 2025-11-26T15.43.05.png" id="6_3ua1q"]
-[ext_resource type="Script" uid="uid://c24k3rmj3lawr" path="res://scripts/cena_gameboy.gd" id="6_i7wml"]
 [ext_resource type="Texture2D" uid="uid://ce3rfnlmvv7x6" path="res://artes/principal/Cabeceira.png" id="6_jj8cv"]
 [ext_resource type="Script" uid="uid://bsi8rw808fc6g" path="res://scripts/usos/UsoChecarTexto.gd" id="6_wx7xh"]
 [ext_resource type="Texture2D" uid="uid://jt1h2uk6gcrd" path="res://artes/principal/Baú_pequeno.png" id="7_ps3j1"]
 [ext_resource type="PackedScene" uid="uid://b151skqw535cy" path="res://cenas/senha_baú.tscn" id="8_3ua1q"]
 [ext_resource type="PackedScene" uid="uid://caf8h2y6hytx0" path="res://cenas/arrastavel.tscn" id="9_ni4a3"]
-[ext_resource type="PackedScene" uid="uid://cyje48mccihcc" path="res://cenas/cartucho.tscn" id="10_3ua1q"]
 [ext_resource type="Script" uid="uid://c6whlogyihtrf" path="res://scripts/usos/UsoJogoColetavel.gd" id="10_wx7xh"]
 [ext_resource type="PackedScene" uid="uid://deaadnmvo6anv" path="res://cenas/gameboy_porco_coiote.tscn" id="11_3ua1q"]
-[ext_resource type="Theme" uid="uid://b5ttd423pn7an" path="res://temaBotão.tres" id="12_i7wml"]
 [ext_resource type="Script" uid="uid://bbbqrqnhf583u" path="res://cenas/escorregaReal.gd" id="12_ofpu3"]
 [ext_resource type="Script" uid="uid://xa3th7xult35" path="res://scripts/usos/UsoChecarEnergia.gd" id="13_ks0dj"]
 [ext_resource type="Script" uid="uid://bamxgpmnrlgra" path="res://scripts/usos/UsoAparecer.gd" id="15_r2q1y"]
@@ -26,6 +23,8 @@
 [ext_resource type="PackedScene" uid="uid://bc31b8vj8d3yo" path="res://cenas/perguntas_real.tscn" id="18_5xru3"]
 [ext_resource type="PackedScene" uid="uid://dqvba0qko027i" path="res://cenas/game_boy_perguntas.tscn" id="19_exacy"]
 [ext_resource type="Script" uid="uid://cydebj6scufll" path="res://scripts/usos/UsoLigarEnergia.gd" id="20_r2q1y"]
+[ext_resource type="PackedScene" uid="uid://bccovp6lnbqlm" path="res://cenas/pausa_menu.tscn" id="23_ks0dj"]
+[ext_resource type="Texture2D" uid="uid://c0fi2nh5fbe52" path="res://artes/gameboy/gameboy_frente.png" id="27_d3324"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_iw4ti"]
 font_size = 64
@@ -42,8 +41,45 @@ default_font_size = 24
 [sub_resource type="Theme" id="Theme_ks0dj"]
 default_font_size = 16
 
-[sub_resource type="LabelSettings" id="LabelSettings_wx7xh"]
-font_size = 64
+[sub_resource type="LabelSettings" id="LabelSettings_ks0dj"]
+font_size = 24
+
+[sub_resource type="Animation" id="Animation_r2q1y"]
+resource_name = "MostrarTexto"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_d3324"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n8681"]
+_data = {
+&"MostrarTexto": SubResource("Animation_r2q1y"),
+&"RESET": SubResource("Animation_d3324")
+}
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_scfaf"]
 texture = ExtResource("6_3ua1q")
@@ -123,9 +159,10 @@ offset_right = 1152.0
 offset_bottom = 648.0
 
 [node name="Cenário 1" type="Sprite2D" parent="tela 1" unique_id=28498415]
-position = Vector2(575.5, 322.50003)
-scale = Vector2(3.0026042, 3.0138888)
+position = Vector2(576.03, 324)
+scale = Vector2(2.9999998, 3)
 texture = ExtResource("2_ni4a3")
+offset = Vector2(-0.01, 0)
 
 [node name="Label2" type="Label" parent="tela 1" unique_id=363949644]
 layout_mode = 0
@@ -157,6 +194,7 @@ offset_left = 103.0
 offset_top = 277.0
 offset_right = 211.0
 offset_bottom = 421.0
+focus_mode = 0
 theme = SubResource("Theme_3ua1q")
 text = "abajur"
 script = ExtResource("2_0ctr8")
@@ -234,6 +272,10 @@ theme = SubResource("Theme_wx7xh")
 text = "bau"
 script = ExtResource("2_0ctr8")
 
+[node name="UsoChecarCodigo" type="Node" parent="tela 1/CenaBau/BauBloqueio" unique_id=35255922 node_paths=PackedStringArray("target")]
+script = ExtResource("6_wx7xh")
+target = NodePath("../SenhaBaú")
+
 [node name="UsoApagar" type="Node" parent="tela 1/CenaBau/BauBloqueio" unique_id=64065797]
 script = ExtResource("4_i7wml")
 
@@ -243,7 +285,7 @@ offset_left = 255.0
 offset_top = 40.0
 offset_right = 383.0
 offset_bottom = 104.0
-resposta = Array[Color]([Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1)])
+resposta = Array[Color]([Color(0, 1, 0, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)])
 
 [node name="CenaAbajur" type="Node2D" parent="tela 1" unique_id=1500413085]
 visible = false
@@ -266,7 +308,7 @@ offset_left = 472.0
 offset_top = 483.0
 offset_right = 600.0
 offset_bottom = 547.0
-resposta = Array[Color]([Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1)])
+resposta = Array[Color]([Color(0, 1, 0, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)])
 
 [node name="escorregaReal" type="Node2D" parent="tela 1/CenaAbajur" unique_id=1511130454 node_paths=PackedStringArray("alvo")]
 position = Vector2(541, 288)
@@ -429,8 +471,8 @@ offset_bottom = 648.0
 
 [node name="Cenário 2" type="Sprite2D" parent="tela 2" unique_id=1452809426]
 z_index = -1
-position = Vector2(575.4999, 324)
-scale = Vector2(2.9973955, 3.0092595)
+position = Vector2(576.0001, 324)
+scale = Vector2(3, 3.0000002)
 texture = ExtResource("2_ni4a3")
 
 [node name="Label2" type="Label" parent="tela 2" unique_id=1774858801]
@@ -550,8 +592,8 @@ offset_right = 3456.0
 offset_bottom = 648.0
 
 [node name="Cenário 3" type="Sprite2D" parent="tela 3" unique_id=1781743331]
-position = Vector2(576.5, 324)
-scale = Vector2(3.0078127, 3.0185187)
+position = Vector2(576, 324)
+scale = Vector2(3, 3)
 texture = ExtResource("2_ni4a3")
 
 [node name="Label2" type="Label" parent="tela 3" unique_id=82724811]
@@ -649,31 +691,31 @@ offset_top = 128.0
 offset_right = 768.0
 offset_bottom = 512.0
 
-[node name="chave" type="Button" parent="tela 3/EscorregaPeças" unique_id=1697680664]
+[node name="chaveDeFenda" type="Button" parent="tela 3/EscorregaPeças" unique_id=1697680664]
 offset_left = 512.0
 offset_top = 304.0
 offset_right = 615.0
 offset_bottom = 360.0
 theme = SubResource("Theme_3ua1q")
-text = "objeto"
+text = "chave de 
+fenda"
 script = ExtResource("2_0ctr8")
 
-[node name="UsoChecarCodigo" type="Node" parent="tela 3/EscorregaPeças/chave" unique_id=290306749 node_paths=PackedStringArray("target")]
+[node name="UsoChecarCodigo" type="Node" parent="tela 3/EscorregaPeças/chaveDeFenda" unique_id=290306749 node_paths=PackedStringArray("target")]
 script = ExtResource("6_wx7xh")
-target = NodePath("../../../../tela 1/CenaAbajur/escorregaReal")
+target = NodePath("../../escorregaReal")
 
-[node name="UsoColetavel" type="Node" parent="tela 3/EscorregaPeças/chave" unique_id=1716808246]
+[node name="UsoColetavel" type="Node" parent="tela 3/EscorregaPeças/chaveDeFenda" unique_id=1716808246]
 script = ExtResource("5_i7wml")
-item = "Chave de armario"
+item = "chave de fenda"
 
-[node name="UsoApagar" type="Node" parent="tela 3/EscorregaPeças/chave" unique_id=1790922314]
+[node name="UsoApagar" type="Node" parent="tela 3/EscorregaPeças/chaveDeFenda" unique_id=1790922314]
 script = ExtResource("4_i7wml")
 
-[node name="escorregaReal" type="Node2D" parent="tela 3/EscorregaPeças" unique_id=2018678085 node_paths=PackedStringArray("alvo")]
+[node name="escorregaReal" type="Node2D" parent="tela 3/EscorregaPeças" unique_id=2018678085]
 position = Vector2(576, 320)
 script = ExtResource("12_ofpu3")
 passo = 128
-alvo = NodePath("../Bloqueio")
 resposta = Array[Array]([[Vector2(-1, -1)], [Vector2(1, -1)], [], [], [Vector2(-1, 1)], [], [], [Vector2(1, 1)]])
 
 [node name="ColorRect2" type="ColorRect" parent="tela 3/EscorregaPeças/escorregaReal" unique_id=1147608870]
@@ -788,14 +830,6 @@ offset_right = 74.0
 offset_bottom = 79.0
 text = "8"
 
-[node name="Bloqueio" type="ColorRect" parent="tela 3/EscorregaPeças" unique_id=526026967]
-visible = false
-offset_left = 384.0
-offset_top = 128.0
-offset_right = 768.0
-offset_bottom = 512.0
-color = Color(0.4117647, 0.4117647, 0.4117647, 0.1764706)
-
 [node name="slidezzColetavel" type="Button" parent="tela 3/EscorregaPeças" unique_id=349562835]
 offset_left = 648.0
 offset_top = 392.0
@@ -820,8 +854,8 @@ offset_right = 4608.0
 offset_bottom = 648.0
 
 [node name="Cenário 4" type="Sprite2D" parent="tela 4" unique_id=1309661745]
-position = Vector2(578, 324.44598)
-scale = Vector2(3.000001, 3.0051293)
+position = Vector2(576.00006, 324.00006)
+scale = Vector2(3.0000007, 3.0000002)
 texture = ExtResource("2_ni4a3")
 
 [node name="Label2" type="Label" parent="tela 4" unique_id=149913586]
@@ -852,13 +886,13 @@ theme_override_font_sizes/font_size = 39
 text = "negocio
 eletrico"
 script = ExtResource("2_0ctr8")
+requerimento = "chave de fenda"
 
 [node name="UsoTrocarCena" type="Node" parent="tela 4/Button2" unique_id=1844399551 node_paths=PackedStringArray("target")]
 script = ExtResource("2_smd4x")
 target = NodePath("../../CenaEletrico")
 
 [node name="CenaEletrico" type="Node2D" parent="tela 4" unique_id=722656447]
-visible = false
 script = ExtResource("4_wx7xh")
 
 [node name="ColorRect" type="ColorRect" parent="tela 4/CenaEletrico" unique_id=536635170]
@@ -873,37 +907,44 @@ offset_right = 760.0
 offset_bottom = 496.0
 color = Color(0.21230507, 0.21230474, 0.21230489, 1)
 
-[node name="perguntasReal" parent="tela 4/CenaEletrico" unique_id=571699586 node_paths=PackedStringArray("alvo") instance=ExtResource("18_5xru3")]
+[node name="perguntasReal" parent="tela 4/CenaEletrico" unique_id=571699586 instance=ExtResource("18_5xru3")]
 offset_left = 384.0
 offset_top = 215.0
 offset_right = 488.0
 offset_bottom = 319.0
-alvo = NodePath("")
-resposta = Array[int]([2, 3, 0, 1])
+resposta = Array[int]([3, 2, 0, 1])
 
 [node name="Label" type="Label" parent="tela 4/CenaEletrico/perguntasReal" unique_id=705955312]
 layout_mode = 2
 size_flags_vertical = 6
-text = "a galinha"
+text = "1. a galinha"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="tela 4/CenaEletrico/perguntasReal" unique_id=1672054527]
 layout_mode = 2
 size_flags_vertical = 6
-text = "amanha"
+text = "2. amanha"
 horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="tela 4/CenaEletrico/perguntasReal" unique_id=1926276483]
 layout_mode = 2
 size_flags_vertical = 6
-text = "anomalacaris"
+text = "3. anomalacaris"
 horizontal_alignment = 1
 
 [node name="Label4" type="Label" parent="tela 4/CenaEletrico/perguntasReal" unique_id=30664633]
 layout_mode = 2
 size_flags_vertical = 6
-text = "o ovo"
+text = "4. o ovo"
 horizontal_alignment = 1
+
+[node name="indicadorEnergia" type="ColorRect" parent="tela 4/CenaEletrico" unique_id=466774931]
+visible = false
+offset_left = 696.0
+offset_top = 168.0
+offset_right = 728.0
+offset_bottom = 496.0
+color = Color(0.74021643, 0.6780541, 0.18753317, 1)
 
 [node name="Button" type="Button" parent="tela 4/CenaEletrico" unique_id=2006516289]
 offset_left = 576.0
@@ -920,6 +961,10 @@ target = NodePath("../../perguntasReal")
 [node name="UsoLigarEnergia" type="Node" parent="tela 4/CenaEletrico/Button" unique_id=1751321067 node_paths=PackedStringArray("target")]
 script = ExtResource("20_r2q1y")
 target = NodePath("../../../../tela 1/CenaAbajur/escorregaReal")
+
+[node name="UsoAparecer" type="Node" parent="tela 4/CenaEletrico/Button" unique_id=1114173823 node_paths=PackedStringArray("target")]
+script = ExtResource("15_r2q1y")
+target = NodePath("../../indicadorEnergia")
 
 [node name="perguntasColetavel" type="Button" parent="tela 4/CenaEletrico" unique_id=747980068]
 offset_left = 632.0
@@ -944,68 +989,44 @@ visible = false
 [node name="ColorRect" type="ColorRect" parent="GameBoyManager" unique_id=969201005]
 offset_right = 1152.0
 offset_bottom = 648.0
-color = Color(0.13174233, 0.13174233, 0.13174233, 1)
-
-[node name="Label2" type="Label" parent="GameBoyManager" unique_id=173015296]
-offset_left = 272.0
-offset_top = 336.0
-offset_right = 504.0
-offset_bottom = 437.0
-text = "ooohhh 
-cena assustadora
-booo
-a senha do bau é tudo brando"
-
-[node name="seguraCartucho" type="VBoxContainer" parent="GameBoyManager" unique_id=850023116]
-offset_left = 576.0
-offset_top = 218.0
-offset_right = 703.0
-offset_bottom = 624.0
-
-[node name="PausaMenu" type="Node2D" parent="GameBoyManager" unique_id=1867210684]
-visible = false
-script = ExtResource("6_i7wml")
-cenaCartucho = ExtResource("10_3ua1q")
-nome = "PausaMenu"
-
-[node name="ColorRect2" type="ColorRect" parent="GameBoyManager/PausaMenu" unique_id=1551405678]
-offset_left = 192.0
-offset_top = 256.0
-offset_right = 512.0
-offset_bottom = 576.0
 color = Color(0, 0, 0, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="GameBoyManager/PausaMenu" unique_id=892972404]
-offset_left = 192.0
-offset_top = 256.0
-offset_right = 512.0
-offset_bottom = 552.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+[node name="Label2" type="Label" parent="GameBoyManager" unique_id=173015296]
+offset_left = 464.0
+offset_top = 288.0
+offset_right = 777.0
+offset_bottom = 359.0
+text = "aperte espaço para 
+sair  do  gameboy"
+label_settings = SubResource("LabelSettings_ks0dj")
+visible_characters = 0
+visible_ratio = 0.0
 
-[node name="Label" type="Label" parent="GameBoyManager/PausaMenu/VBoxContainer" unique_id=1656335570]
-layout_mode = 2
-size_flags_vertical = 3
-text = "pausa"
-label_settings = SubResource("LabelSettings_wx7xh")
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GameBoyManager/Label2" unique_id=1099230489]
+libraries/ = SubResource("AnimationLibrary_n8681")
+autoplay = &"MostrarTexto"
 
-[node name="BotaoVoltarMenu" type="Button" parent="GameBoyManager/PausaMenu/VBoxContainer" unique_id=272284258]
-layout_mode = 2
-theme = ExtResource("12_i7wml")
-text = "Voltar para o 
-menu Principal"
+[node name="seguraCartucho" type="VBoxContainer" parent="GameBoyManager" unique_id=850023116]
+offset_left = 952.0
+offset_top = 32.0
+offset_right = 1144.0
+offset_bottom = 649.0
 
-[node name="TileMapLayer2" type="TileMapLayer" parent="GameBoyManager" unique_id=1056174420]
-z_index = 1
-tile_map_data = PackedByteArray("AAADAAMAAQAKAAEAAAAEAAMAAQAKAAEAAAAFAAMAAQAKAAEAAAAGAAMAAQAKAAEAAAAHAAMAAQAKAAEAAAAIAAMAAQAKAAEAAAACAAMAAQAKAAEAAAACAAQAAQAKAAEAAAACAAUAAQAKAAEAAAACAAYAAQAKAAEAAAACAAcAAQAKAAEAAAACAAgAAQAKAAEAAAACAAkAAQAKAAEAAAADAAkAAQAKAAEAAAAEAAkAAQAKAAEAAAAFAAkAAQAKAAEAAAAGAAkAAQAKAAEAAAAHAAkAAQAKAAEAAAAIAAkAAQAKAAEAAAAIAAgAAQAKAAEAAAAIAAcAAQAKAAEAAAAIAAYAAQAKAAEAAAAIAAUAAQAKAAEAAAAIAAQAAQAKAAEAAAACAAoAAQAKAAEAAAADAAoAAQAKAAEAAAAEAAoAAQAKAAEAAAAFAAoAAQAKAAEAAAAGAAoAAQAKAAEAAAAHAAoAAQAKAAEAAAAIAAoAAQAKAAEAAAA=")
+[node name="PausaMenu" parent="GameBoyManager" unique_id=1573190343 instance=ExtResource("23_ks0dj")]
+visible = false
+
+[node name="TileMapLayer" type="TileMapLayer" parent="GameBoyManager" unique_id=1056174420]
+tile_map_data = PackedByteArray("AAAGAAgAAQABAAEAAAAHAAgAAQABAAEAAAAIAAgAAQABAAEAAAAJAAgAAQABAAEAAAAKAAgAAQABAAEAAAALAAgAAQABAAEAAAAMAAgAAQABAAEAAAAMAAcAAQABAAEAAAAMAAYAAQABAAEAAAAMAAUAAQABAAEAAAAMAAQAAQABAAEAAAAMAAMAAQABAAEAAAAMAAIAAQABAAEAAAALAAIAAQABAAEAAAAKAAIAAQABAAEAAAAJAAIAAQABAAEAAAAIAAIAAQABAAEAAAAHAAIAAQABAAEAAAAGAAIAAQABAAEAAAAFAAIAAQABAAEAAAAFAAMAAQABAAEAAAAFAAQAAQABAAEAAAAFAAUAAQABAAEAAAAFAAYAAQABAAEAAAAFAAcAAQABAAEAAAAFAAgAAQABAAEAAAA=")
 tile_set = SubResource("TileSet_621oa")
+
+[node name="GameboyFrente" type="Sprite2D" parent="GameBoyManager" unique_id=949747245]
+z_index = 1
+position = Vector2(576, 328)
+scale = Vector2(3, 3)
+texture = ExtResource("27_d3324")
 
 [node name="inventario" type="CanvasLayer" parent="." unique_id=1204945687]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="inventario" unique_id=349978053]
 offset_right = 40.0
 offset_bottom = 40.0
-
-[connection signal="pressed" from="GameBoyManager/PausaMenu/VBoxContainer/BotaoVoltarMenu" to="GameBoyManager/PausaMenu" method="_sair_do_jogo"]

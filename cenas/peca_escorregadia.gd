@@ -5,7 +5,7 @@ extends CharacterBody2D
 @export var tamanho_do_passo:int
 @export var numero:int
 var andando = false
-var centro = Vector2(352,416)
+var centro = Vector2(576,352)
 
 func _ready() -> void:
 	$Label.text = str(numero)

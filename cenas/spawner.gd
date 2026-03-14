@@ -5,7 +5,7 @@ extends Node2D
 @export var spawn:PackedScene
 
 func _physics_process(delta: float) -> void:
-	var pai:CenaGameboy = get_parent()
+	var pai:CenaGameboy = get_parent().get_parent()
 	
 	if !pai.ativo:
 		return

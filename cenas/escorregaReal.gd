@@ -17,6 +17,9 @@ func _ready() -> void:
 			pecas[i].visible = false
 
 func checarCodigo():
+	if posicoes.size() == 0:
+		return false
+	
 	for i in resposta.size():
 		if resposta[i].size() > 0:
 			if !resposta[i].has(posicoes[i]):

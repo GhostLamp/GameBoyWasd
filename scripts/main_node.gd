@@ -33,14 +33,14 @@ var tela_atual:int = 0:
 var items:Dictionary = {}
 
 var foco_atual:Node2D = self
-var noGameboy:bool = false
+var noGameboy:bool = true
 var ultima_cena_real = self
 var eletricidade:bool = false
 
 func _ready() -> void:
 	telas = [tela_1,tela_2,tela_3,tela_4]
 	camera_2d.position = telas[tela_atual].position
-	game_boy_manager.hide()
+	game_boy_manager.visible = true
 
 # a função _input(event: InputEvent) roda toda vez que vc toca em uma tecla
 # e retorna a tecla como event
@@ -70,7 +70,7 @@ func _process(delta: float) -> void:
 			noGameboy = true
 	
 	if Input.is_action_just_pressed("baixo") and foco_atual is CenaReal:
-		set_cena_ativa(self)
+		gameBoy_trocar(self)
 
 # função pra adicionar um item no dicionario
 func adicionar_item(item:String):
@@ -132,7 +132,5 @@ func set_cena_ativa(novoFoco:Node2D):
 	
 	if novoFoco.has_method("ativarCena"):
 		novoFoco.ativarCena()
-	
-	
 	
 	foco_atual = novoFoco

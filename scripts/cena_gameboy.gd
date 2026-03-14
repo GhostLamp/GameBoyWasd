@@ -25,12 +25,13 @@ func ativarCena():
 	show()
 	get_parent().show()
 	ativo = true
-	
+	cartucho.visible = false
 	if player:
 		player.set_process_input(true)
 
 func desativarCena():
 	ativo = false
+	cartucho.visible = true
 	hide()
 	if player:
 		player.set_process_input(false)
