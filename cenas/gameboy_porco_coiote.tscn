@@ -4,11 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://cyje48mccihcc" path="res://cenas/cartucho.tscn" id="2_4lv54"]
 [ext_resource type="Texture2D" uid="uid://c8qjdjiyhlhap" path="res://Selection 2025-11-26T15.43.05.png" id="2_eoxrm"]
 [ext_resource type="PackedScene" uid="uid://c87e80ovjw55m" path="res://cenas/porco_char.tscn" id="3_4lv54"]
+[ext_resource type="Texture2D" uid="uid://cp8va1ldr10jq" path="res://artes/principal/cenario.png" id="4_2vtxp"]
 [ext_resource type="PackedScene" uid="uid://t74s7kowkqsc" path="res://cenas/coiote_inimigo.tscn" id="4_u2o2a"]
 [ext_resource type="PackedScene" uid="uid://hkph7vs0sq5f" path="res://cenas/pedra_pegavel.tscn" id="5_2vtxp"]
 [ext_resource type="Script" uid="uid://b2ad127111275" path="res://cenas/spawner.gd" id="6_woxdl"]
 [ext_resource type="Script" uid="uid://b221tbo7bp1eb" path="res://cenas/lose_area.gd" id="7_8ieaw"]
 [ext_resource type="Texture2D" uid="uid://c0fi2nh5fbe52" path="res://artes/gameboy/gameboy_frente.png" id="9_4lv54"]
+[ext_resource type="Texture2D" uid="uid://bfmndydrvrkgv" path="res://artes/principal/Porco filho.png" id="11_2vtxp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_scfaf"]
 texture = ExtResource("2_eoxrm")
@@ -99,8 +101,13 @@ position = Vector2(224, -63)
 tile_map_data = PackedByteArray("AAAEAAcAAQAKAAAAAAAFAAYAAQAKAAAAAAAEAAUAAQAKAAAAAAAGAAUAAQAKAAAAAAAGAAcAAQAKAAAAAAAGAAgAAQAKAAQAAAAHAAcAAQAKAAQAAAAGAAYAAQAKAAQAAAAFAAcAAQAKAAQAAAAEAAgAAQAKAAQAAAADAAcAAQAKAAQAAAAEAAYAAQAKAAQAAAAFAAUAAQAKAAQAAAAGAAQAAQAKAAQAAAAHAAUAAQAKAAQAAAAEAAQAAQAKAAQAAAADAAUAAQAKAAQAAAADAAQAAQAKAAAAAAAHAAQAAQAKAAAAAAAHAAYAAQAKAAAAAAAHAAgAAQAKAAAAAAAFAAgAAQAKAAAAAAADAAgAAQAKAAAAAAADAAYAAQAKAAAAAAAFAAQAAQAKAAAAAAACAAMAAQABAAEAAAADAAMAAQABAAEAAAAEAAMAAQABAAEAAAAFAAMAAQABAAEAAAAGAAMAAQABAAEAAAAHAAMAAQABAAEAAAAIAAMAAQABAAEAAAAIAAQAAQABAAEAAAAIAAUAAQABAAEAAAAIAAYAAQABAAEAAAAIAAcAAQABAAEAAAAIAAgAAQABAAEAAAAIAAkAAQABAAEAAAAHAAkAAQABAAEAAAAGAAkAAQABAAEAAAAFAAkAAQABAAEAAAAEAAkAAQABAAEAAAADAAkAAQABAAEAAAACAAkAAQABAAEAAAACAAgAAQABAAEAAAACAAcAAQABAAEAAAACAAYAAQABAAEAAAACAAUAAQABAAEAAAACAAQAAQABAAEAAAA=")
 tile_set = SubResource("TileSet_621oa")
 
+[node name="Cenário" type="Sprite2D" parent="gameElements/TileMapLayer" unique_id=298940981]
+position = Vector2(353, 414.5)
+scale = Vector2(1.790909, 1.631818)
+texture = ExtResource("4_2vtxp")
+
 [node name="PorcoChar" parent="gameElements" unique_id=1591911394 node_paths=PackedStringArray("label") instance=ExtResource("3_4lv54")]
-position = Vector2(481, 288)
+position = Vector2(477, 291)
 label = NodePath("../../Label")
 
 [node name="CoioteInimigo" parent="gameElements" unique_id=709315748 instance=ExtResource("4_u2o2a")]
@@ -138,6 +145,10 @@ script = ExtResource("7_8ieaw")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="loseArea" unique_id=1807492525]
 position = Vector2(376, 352)
 shape = SubResource("RectangleShape2D_ni4a3")
+
+[node name="Porco_filhote" type="Sprite2D" parent="." unique_id=418015700]
+position = Vector2(411, 449)
+texture = ExtResource("11_2vtxp")
 
 [node name="endScreen" type="Node2D" parent="." unique_id=1630636669]
 visible = false

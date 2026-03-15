@@ -1,10 +1,32 @@
 [gd_scene format=3 uid="uid://c87e80ovjw55m"]
 
 [ext_resource type="Script" uid="uid://d4abqh06r2wy6" path="res://scripts/porco_char.gd" id="1_d5sis"]
-[ext_resource type="Texture2D" uid="uid://p355yr24k314" path="res://icon.svg" id="2_4sadt"]
+[ext_resource type="Texture2D" uid="uid://cv7d0p14u1cm1" path="res://artes/principal/Pai porco 2.png" id="2_q1wxx"]
+[ext_resource type="Texture2D" uid="uid://dqnm335to66n1" path="res://artes/principal/Pai porco 3.png" id="3_xdgeb"]
+[ext_resource type="Texture2D" uid="uid://buode0oatrd6c" path="res://artes/principal/Pai porco 4.png" id="4_gtrnt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_scfaf"]
-size = Vector2(64, 64)
+size = Vector2(26, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7ahq6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_q1wxx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xdgeb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gtrnt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xdgeb")
+}],
+"loop": true,
+"name": &"Animações",
+"speed": 4.0
+}]
 
 [node name="PorcoChar" type="CharacterBody2D" unique_id=1591911394]
 motion_mode = 1
@@ -18,8 +40,7 @@ shape = SubResource("RectangleShape2D_scfaf")
 [node name="RayCast2D" type="RayCast2D" parent="OlhandoPara" unique_id=1931107155]
 target_position = Vector2(50, 0)
 
-[node name="Icon" type="Sprite2D" parent="OlhandoPara" unique_id=1836925186]
-position = Vector2(-1.9073486e-06, 0)
-rotation = 1.5707964
-scale = Vector2(0.49999997, 0.5)
-texture = ExtResource("2_4sadt")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2115567899]
+sprite_frames = SubResource("SpriteFrames_7ahq6")
+animation = &"Animações"
+frame_progress = 0.89162725
